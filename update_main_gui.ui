@@ -1328,7 +1328,7 @@ border: 2px solid black;</string>
           <enum>Qt::Horizontal</enum>
          </property>
          <property name="sizeType">
-          <enum>QSizePolicy::Minimum</enum>
+          <enum>QSizePolicy::MinimumExpanding</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -1365,7 +1365,7 @@ border: 2px solid black;</string>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>158</width>
+           <width>50</width>
            <height>20</height>
           </size>
          </property>
