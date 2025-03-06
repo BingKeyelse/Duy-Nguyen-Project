@@ -1375,7 +1375,7 @@ border: 2px solid black;</string>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>100</width>
+                 <width>200</width>
                  <height>20</height>
                 </size>
                </property>
@@ -1407,7 +1407,7 @@ border: 2px solid black;</string>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>100</width>
+                 <width>200</width>
                  <height>20</height>
                 </size>
                </property>

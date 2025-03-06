@@ -807,7 +807,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_13.addWidget(self.label_4, 1, 1, 1, 1)
 
-        self.horizontalSpacer_6 = QSpacerItem(100, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_6 = QSpacerItem(200, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_13.addItem(self.horizontalSpacer_6, 1, 0, 1, 1)
 
@@ -815,7 +815,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_13.addItem(self.verticalSpacer_8, 0, 1, 1, 1)
 
-        self.horizontalSpacer_8 = QSpacerItem(100, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_8 = QSpacerItem(200, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_13.addItem(self.horizontalSpacer_8, 1, 2, 1, 1)
 
