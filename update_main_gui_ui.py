@@ -773,30 +773,13 @@ class Ui_MainWindow(object):
 
         self.window_header = QWidget(self.centralwidget)
         self.window_header.setObjectName(u"window_header")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.window_header.sizePolicy().hasHeightForWidth())
         self.window_header.setSizePolicy(sizePolicy1)
         self.horizontalLayout = QHBoxLayout(self.window_header)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalSpacer = QSpacerItem(159, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
-
-        self.label = QLabel(self.window_header)
-        self.label.setObjectName(u"label")
-        font3 = QFont()
-        font3.setPointSize(16)
-        font3.setBold(True)
-        self.label.setFont(font3)
-
-        self.horizontalLayout.addWidget(self.label)
-
-        self.horizontalSpacer_2 = QSpacerItem(158, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer_2)
-
         self.formLayout = QFormLayout()
         self.formLayout.setObjectName(u"formLayout")
         self.formLayout.setHorizontalSpacing(0)
@@ -818,12 +801,28 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addLayout(self.formLayout)
 
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer = QSpacerItem(159, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout.addItem(self.horizontalSpacer_3)
+        self.horizontalLayout.addItem(self.horizontalSpacer)
+
+        self.label = QLabel(self.window_header)
+        self.label.setObjectName(u"label")
+        font3 = QFont()
+        font3.setPointSize(16)
+        font3.setBold(True)
+        self.label.setFont(font3)
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout.addWidget(self.label)
+
+        self.horizontalSpacer_2 = QSpacerItem(158, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_2)
 
         self.formLayout_2 = QFormLayout()
         self.formLayout_2.setObjectName(u"formLayout_2")
+        self.formLayout_2.setHorizontalSpacing(6)
+        self.formLayout_2.setVerticalSpacing(0)
         self.label_3 = QLabel(self.window_header)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setPixmap(QPixmap(u":/icon/icons/Pie-Line-Graph-Desktop--Streamline-Ultimate.png"))
@@ -847,6 +846,10 @@ class Ui_MainWindow(object):
 
 
         self.horizontalLayout.addLayout(self.formLayout_2)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_3)
 
 
         self.gridLayout_2.addWidget(self.window_header, 0, 0, 1, 1)
@@ -922,8 +925,8 @@ class Ui_MainWindow(object):
         self.show_v_low_cam1.setText(QCoreApplication.translate("MainWindow", u"V th\u1ea5p", None))
         self.show_contrast_cam1.setText(QCoreApplication.translate("MainWindow", u"\u0110\u1ed9 th\u01b0\u01a1ng ph\u1ea3n:             ", None))
         self.show_value_now_cam1.setText(QCoreApplication.translate("MainWindow", u"Gi\u00e1 tr\u1ecb hi\u1ec7n t\u1ea1i", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Pronics Precision Automation", None))
         self.label_2.setText("")
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Pronics Precision Automation", None))
         self.label_3.setText("")
         self.show_disk_header.setText(QCoreApplication.translate("MainWindow", u"Disk", None))
         self.show_ram_header.setText(QCoreApplication.translate("MainWindow", u"Ram:                ", None))
