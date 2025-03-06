@@ -26,6 +26,7 @@ class MainWindow(QMainWindow):
         self.ui.window_expand.hide()
 
         self.ui.but_tool_cam1.clicked.connect(self.toggle_visibility)
+        self.ui.but_tool_calib.clicked.connect(self.toggle_visibility)
 
         # Tạo QTimer để cập nhật thời gian mỗi giây
         self.timer = QTimer(self)
