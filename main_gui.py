@@ -369,7 +369,7 @@ class Ui_MainWindow(object):
         self.gridLayout_7.setVerticalSpacing(0)
         self.gridLayout_7.setObjectName("gridLayout_7")
         self.groupBox = QtWidgets.QGroupBox(self.widget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
