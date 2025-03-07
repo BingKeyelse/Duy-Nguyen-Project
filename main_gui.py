@@ -1725,7 +1725,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.stackedWidget_2.setCurrentIndex(1)
         self.stackedWidget_3.setCurrentIndex(0)
         self.stackedWidget_4.setCurrentIndex(1)

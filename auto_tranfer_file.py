@@ -1,4 +1,5 @@
-import subprocess
+from import_all import*
+
 
 # Định nghĩa file giao diện và file output
 file_ui = "update_main_gui.ui"

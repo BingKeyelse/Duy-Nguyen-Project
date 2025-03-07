@@ -2031,7 +2031,7 @@ class Ui_MainWindow(object):
         self.but_information_icon.toggled.connect(self.but_information_expand.setChecked)
         self.but_information_expand.toggled.connect(self.but_information_icon.setChecked)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.stackedWidget_2.setCurrentIndex(1)
         self.stackedWidget_3.setCurrentIndex(0)
         self.stackedWidget_4.setCurrentIndex(1)

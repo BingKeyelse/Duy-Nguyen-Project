@@ -571,7 +571,7 @@ QSlider::sub-page:horizontal {
 }</string>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="window_1">
          <layout class="QGridLayout" name="gridLayout_10">
@@ -4135,12 +4135,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>45</x>
-     <y>196</y>
+     <x>44</x>
+     <y>150</y>
     </hint>
     <hint type="destinationlabel">
-     <x>90</x>
-     <y>200</y>
+     <x>140</x>
+     <y>152</y>
     </hint>
    </hints>
   </connection>
@@ -4151,12 +4151,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>105</x>
-     <y>181</y>
+     <x>140</x>
+     <y>152</y>
     </hint>
     <hint type="destinationlabel">
-     <x>39</x>
-     <y>186</y>
+     <x>44</x>
+     <y>150</y>
     </hint>
    </hints>
   </connection>
@@ -4168,11 +4168,11 @@ border: 2px solid black;</string>
    <hints>
     <hint type="sourcelabel">
      <x>44</x>
-     <y>233</y>
+     <y>190</y>
     </hint>
     <hint type="destinationlabel">
-     <x>101</x>
-     <y>248</y>
+     <x>140</x>
+     <y>192</y>
     </hint>
    </hints>
   </connection>
@@ -4183,12 +4183,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>91</x>
-     <y>231</y>
+     <x>140</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
-     <x>32</x>
-     <y>231</y>
+     <x>43</x>
+     <y>190</y>
     </hint>
    </hints>
   </connection>
@@ -4199,12 +4199,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>37</x>
-     <y>270</y>
+     <x>44</x>
+     <y>230</y>
     </hint>
     <hint type="destinationlabel">
-     <x>85</x>
-     <y>282</y>
+     <x>138</x>
+     <y>232</y>
     </hint>
    </hints>
   </connection>
@@ -4215,12 +4215,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>87</x>
-     <y>269</y>
+     <x>140</x>
+     <y>232</y>
     </hint>
     <hint type="destinationlabel">
-     <x>38</x>
-     <y>270</y>
+     <x>44</x>
+     <y>230</y>
     </hint>
    </hints>
   </connection>
@@ -4231,12 +4231,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>41</x>
-     <y>306</y>
+     <x>44</x>
+     <y>270</y>
     </hint>
     <hint type="destinationlabel">
-     <x>88</x>
-     <y>319</y>
+     <x>140</x>
+     <y>272</y>
     </hint>
    </hints>
   </connection>
@@ -4247,12 +4247,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>92</x>
-     <y>307</y>
+     <x>140</x>
+     <y>272</y>
     </hint>
     <hint type="destinationlabel">
-     <x>42</x>
-     <y>312</y>
+     <x>44</x>
+     <y>270</y>
     </hint>
    </hints>
   </connection>
@@ -4263,12 +4263,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>36</x>
-     <y>349</y>
+     <x>44</x>
+     <y>310</y>
     </hint>
     <hint type="destinationlabel">
-     <x>86</x>
-     <y>362</y>
+     <x>139</x>
+     <y>312</y>
     </hint>
    </hints>
   </connection>
@@ -4279,12 +4279,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>111</x>
-     <y>350</y>
+     <x>140</x>
+     <y>312</y>
     </hint>
     <hint type="destinationlabel">
-     <x>37</x>
-     <y>348</y>
+     <x>44</x>
+     <y>310</y>
     </hint>
    </hints>
   </connection>
@@ -4295,12 +4295,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>38</x>
-     <y>383</y>
+     <x>44</x>
+     <y>350</y>
     </hint>
     <hint type="destinationlabel">
-     <x>89</x>
-     <y>399</y>
+     <x>140</x>
+     <y>352</y>
     </hint>
    </hints>
   </connection>
@@ -4311,12 +4311,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>101</x>
-     <y>384</y>
+     <x>140</x>
+     <y>352</y>
     </hint>
     <hint type="destinationlabel">
-     <x>37</x>
-     <y>384</y>
+     <x>44</x>
+     <y>350</y>
     </hint>
    </hints>
   </connection>
@@ -4327,12 +4327,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>51</x>
-     <y>422</y>
+     <x>44</x>
+     <y>390</y>
     </hint>
     <hint type="destinationlabel">
-     <x>99</x>
-     <y>438</y>
+     <x>140</x>
+     <y>392</y>
     </hint>
    </hints>
   </connection>
@@ -4343,12 +4343,12 @@ border: 2px solid black;</string>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>125</x>
-     <y>425</y>
+     <x>140</x>
+     <y>392</y>
     </hint>
     <hint type="destinationlabel">
-     <x>43</x>
-     <y>425</y>
+     <x>44</x>
+     <y>390</y>
     </hint>
    </hints>
   </connection>

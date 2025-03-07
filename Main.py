@@ -1,5 +1,4 @@
 from import_all import*
-from main_gui import Ui_MainWindow  # Import file giao diện PyQt5
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -9,7 +8,11 @@ class MainWindow(QMainWindow):
         self.read_and_update_time_date()
         UI_of_main_gui.change_window(self)
         
+        
         self.ui.window_expand.hide()
+        UI_of_main_gui.tranfer_window(self)
+        
+
 
 
         # Tạo QTimer để cập nhật thời gian mỗi giây
@@ -54,7 +57,7 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     ### Convert 
-    convert_ui_qrc_to_py()
+    auto_tranfer_file.convert_ui_qrc_to_py()
     app = QApplication(sys.argv)
     main_win = MainWindow()
     main_win.show()
