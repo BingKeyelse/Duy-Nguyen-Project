@@ -16,9 +16,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDateTimeEdit, QFormLayout, QGridLayout,
-    QGroupBox, QHBoxLayout, QLabel, QLayout,
+    QGroupBox, QHBoxLayout, QHeaderView, QLabel,
+    QLayout, QLineEdit, QListWidget, QListWidgetItem,
     QMainWindow, QPushButton, QSizePolicy, QSlider,
-    QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
+    QSpacerItem, QStackedWidget, QTableWidget, QTableWidgetItem,
+    QVBoxLayout, QWidget)
 import icons_rc
 
 class Ui_MainWindow(object):
@@ -75,7 +77,9 @@ class Ui_MainWindow(object):
 "    border-radius: 50px;\n"
 "}")
         self.verticalLayout_4 = QVBoxLayout(self.window_icon)
+        self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.label_6 = QLabel(self.window_icon)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setStyleSheet(u"background-color: #48cae4;\n"
@@ -225,7 +229,9 @@ class Ui_MainWindow(object):
 "    border-radius: 50px;\n"
 "}")
         self.verticalLayout_5 = QVBoxLayout(self.window_expand)
+        self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.pushButton_18 = QPushButton(self.window_expand)
         self.pushButton_18.setObjectName(u"pushButton_18")
         self.pushButton_18.setEnabled(False)
@@ -366,7 +372,9 @@ class Ui_MainWindow(object):
         self.window_1 = QWidget()
         self.window_1.setObjectName(u"window_1")
         self.gridLayout_10 = QGridLayout(self.window_1)
+        self.gridLayout_10.setSpacing(0)
         self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.gridLayout_10.setContentsMargins(0, 0, 0, 0)
         self.formLayout_3 = QFormLayout()
         self.formLayout_3.setObjectName(u"formLayout_3")
         self.formLayout_3.setContentsMargins(-1, -1, 50, -1)
@@ -548,6 +556,7 @@ class Ui_MainWindow(object):
 
         self.but_take_picture_cam1 = QPushButton(self.groupBox_3)
         self.but_take_picture_cam1.setObjectName(u"but_take_picture_cam1")
+        self.but_take_picture_cam1.setMinimumSize(QSize(0, 50))
         icon12 = QIcon()
         icon12.addFile(u":/icon/icons/Cursor-Select-Frame--Streamline-Ultimate.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.but_take_picture_cam1.setIcon(icon12)
@@ -556,6 +565,7 @@ class Ui_MainWindow(object):
 
         self.but_saving_cam1 = QPushButton(self.groupBox_3)
         self.but_saving_cam1.setObjectName(u"but_saving_cam1")
+        self.but_saving_cam1.setMinimumSize(QSize(0, 50))
         icon13 = QIcon()
         icon13.addFile(u":/icon/icons/Time-Clock-File-Refresh--Streamline-Ultimate.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.but_saving_cam1.setIcon(icon13)
@@ -564,6 +574,7 @@ class Ui_MainWindow(object):
 
         self.but_undo_cam1 = QPushButton(self.groupBox_3)
         self.but_undo_cam1.setObjectName(u"but_undo_cam1")
+        self.but_undo_cam1.setMinimumSize(QSize(0, 50))
         icon14 = QIcon()
         icon14.addFile(u":/icon/icons/Navigation-Right--Streamline-Ultimate.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.but_undo_cam1.setIcon(icon14)
@@ -572,6 +583,7 @@ class Ui_MainWindow(object):
 
         self.but_take_sample_cam1 = QPushButton(self.groupBox_3)
         self.but_take_sample_cam1.setObjectName(u"but_take_sample_cam1")
+        self.but_take_sample_cam1.setMinimumSize(QSize(0, 50))
         icon15 = QIcon()
         icon15.addFile(u":/icon/icons/Append-Data-To-Spreadsheet--Streamline-Ultimate.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.but_take_sample_cam1.setIcon(icon15)
@@ -580,6 +592,7 @@ class Ui_MainWindow(object):
 
         self.but_calib_cam1 = QPushButton(self.groupBox_3)
         self.but_calib_cam1.setObjectName(u"but_calib_cam1")
+        self.but_calib_cam1.setMinimumSize(QSize(0, 50))
         icon16 = QIcon()
         icon16.addFile(u":/icon/icons/Cell-Select-1--Streamline-Ultimate.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.but_calib_cam1.setIcon(icon16)
@@ -588,6 +601,7 @@ class Ui_MainWindow(object):
 
         self.but_result_cam1 = QPushButton(self.groupBox_3)
         self.but_result_cam1.setObjectName(u"but_result_cam1")
+        self.but_result_cam1.setMinimumSize(QSize(0, 50))
         icon17 = QIcon()
         icon17.addFile(u":/icon/icons/Navigation-Arrows-Right-1--Streamline-Ultimate.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.but_result_cam1.setIcon(icon17)
@@ -772,7 +786,9 @@ class Ui_MainWindow(object):
         self.window_2 = QWidget()
         self.window_2.setObjectName(u"window_2")
         self.gridLayout_14 = QGridLayout(self.window_2)
+        self.gridLayout_14.setSpacing(0)
         self.gridLayout_14.setObjectName(u"gridLayout_14")
+        self.gridLayout_14.setContentsMargins(0, 0, 0, 0)
         self.formLayout_5 = QFormLayout()
         self.formLayout_5.setObjectName(u"formLayout_5")
         self.formLayout_5.setContentsMargins(-1, -1, 70, -1)
@@ -884,7 +900,9 @@ class Ui_MainWindow(object):
         self.window_3 = QWidget()
         self.window_3.setObjectName(u"window_3")
         self.gridLayout_18 = QGridLayout(self.window_3)
+        self.gridLayout_18.setSpacing(0)
         self.gridLayout_18.setObjectName(u"gridLayout_18")
+        self.gridLayout_18.setContentsMargins(-1, 0, 0, 0)
         self.widget_3 = QWidget(self.window_3)
         self.widget_3.setObjectName(u"widget_3")
         sizePolicy.setHeightForWidth(self.widget_3.sizePolicy().hasHeightForWidth())
@@ -1266,8 +1284,8 @@ class Ui_MainWindow(object):
         self.formLayout_8 = QFormLayout()
         self.formLayout_8.setObjectName(u"formLayout_8")
         self.formLayout_8.setHorizontalSpacing(0)
-        self.formLayout_8.setVerticalSpacing(15)
-        self.formLayout_8.setContentsMargins(10, -1, -1, -1)
+        self.formLayout_8.setVerticalSpacing(10)
+        self.formLayout_8.setContentsMargins(10, 10, -1, -1)
         self.label_19 = QLabel(self.groupBox_13)
         self.label_19.setObjectName(u"label_19")
 
@@ -1329,6 +1347,584 @@ class Ui_MainWindow(object):
         self.gridLayout_32.addWidget(self.groupBox_13, 2, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.window_4)
+        self.window_5 = QWidget()
+        self.window_5.setObjectName(u"window_5")
+        self.gridLayout_42 = QGridLayout(self.window_5)
+        self.gridLayout_42.setSpacing(0)
+        self.gridLayout_42.setObjectName(u"gridLayout_42")
+        self.gridLayout_42.setContentsMargins(0, 0, 0, 0)
+        self.formLayout_9 = QFormLayout()
+        self.formLayout_9.setObjectName(u"formLayout_9")
+        self.formLayout_9.setHorizontalSpacing(0)
+        self.formLayout_9.setVerticalSpacing(0)
+        self.formLayout_9.setContentsMargins(-1, -1, 80, -1)
+        self.but_tool_ng1cam = QPushButton(self.window_5)
+        self.but_tool_ng1cam.setObjectName(u"but_tool_ng1cam")
+        self.but_tool_ng1cam.setMinimumSize(QSize(0, 30))
+        self.but_tool_ng1cam.setIcon(icon9)
+        self.but_tool_ng1cam.setCheckable(False)
+
+        self.formLayout_9.setWidget(0, QFormLayout.LabelRole, self.but_tool_ng1cam)
+
+        self.label_28 = QLabel(self.window_5)
+        self.label_28.setObjectName(u"label_28")
+        sizePolicy4.setHeightForWidth(self.label_28.sizePolicy().hasHeightForWidth())
+        self.label_28.setSizePolicy(sizePolicy4)
+        self.label_28.setFont(font)
+        self.label_28.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_9.setWidget(0, QFormLayout.FieldRole, self.label_28)
+
+
+        self.gridLayout_42.addLayout(self.formLayout_9, 0, 0, 1, 1)
+
+        self.widget_7 = QWidget(self.window_5)
+        self.widget_7.setObjectName(u"widget_7")
+        self.gridLayout_41 = QGridLayout(self.widget_7)
+        self.gridLayout_41.setSpacing(0)
+        self.gridLayout_41.setObjectName(u"gridLayout_41")
+        self.gridLayout_41.setContentsMargins(0, 0, 0, 0)
+        self.groupBox_14 = QGroupBox(self.widget_7)
+        self.groupBox_14.setObjectName(u"groupBox_14")
+        self.groupBox_14.setFont(font2)
+        self.gridLayout_37 = QGridLayout(self.groupBox_14)
+        self.gridLayout_37.setSpacing(0)
+        self.gridLayout_37.setObjectName(u"gridLayout_37")
+        self.gridLayout_37.setContentsMargins(0, 0, 0, 0)
+        self.listWidget = QListWidget(self.groupBox_14)
+        self.listWidget.setObjectName(u"listWidget")
+        sizePolicy.setHeightForWidth(self.listWidget.sizePolicy().hasHeightForWidth())
+        self.listWidget.setSizePolicy(sizePolicy)
+
+        self.gridLayout_37.addWidget(self.listWidget, 0, 0, 1, 1)
+
+        self.verticalLayout_12 = QVBoxLayout()
+        self.verticalLayout_12.setSpacing(50)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_12.setContentsMargins(5, -1, 5, -1)
+        self.verticalSpacer_11 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_12.addItem(self.verticalSpacer_11)
+
+        self.pushButton_11 = QPushButton(self.groupBox_14)
+        self.pushButton_11.setObjectName(u"pushButton_11")
+        self.pushButton_11.setMinimumSize(QSize(50, 60))
+        icon24 = QIcon()
+        icon24.addFile(u":/icon/icons/Navigation-Arrows-Up-1--Streamline-Ultimate.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.pushButton_11.setIcon(icon24)
+
+        self.verticalLayout_12.addWidget(self.pushButton_11)
+
+        self.pushButton_12 = QPushButton(self.groupBox_14)
+        self.pushButton_12.setObjectName(u"pushButton_12")
+        self.pushButton_12.setMinimumSize(QSize(50, 60))
+        icon25 = QIcon()
+        icon25.addFile(u":/icon/icons/Navigation-Arrows-Down-1--Streamline-Ultimate.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.pushButton_12.setIcon(icon25)
+
+        self.verticalLayout_12.addWidget(self.pushButton_12)
+
+        self.verticalSpacer_12 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_12.addItem(self.verticalSpacer_12)
+
+
+        self.gridLayout_37.addLayout(self.verticalLayout_12, 0, 1, 1, 1)
+
+
+        self.gridLayout_41.addWidget(self.groupBox_14, 0, 0, 1, 1)
+
+        self.verticalLayout_13 = QVBoxLayout()
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.groupBox_15 = QGroupBox(self.widget_7)
+        self.groupBox_15.setObjectName(u"groupBox_15")
+        sizePolicy.setHeightForWidth(self.groupBox_15.sizePolicy().hasHeightForWidth())
+        self.groupBox_15.setSizePolicy(sizePolicy)
+        self.groupBox_15.setFont(font2)
+        self.gridLayout_38 = QGridLayout(self.groupBox_15)
+        self.gridLayout_38.setSpacing(0)
+        self.gridLayout_38.setObjectName(u"gridLayout_38")
+        self.gridLayout_38.setContentsMargins(0, -1, 0, 0)
+        self.label_25 = QLabel(self.groupBox_15)
+        self.label_25.setObjectName(u"label_25")
+        self.label_25.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+
+        self.gridLayout_38.addWidget(self.label_25, 0, 0, 1, 1)
+
+
+        self.verticalLayout_13.addWidget(self.groupBox_15)
+
+        self.groupBox_16 = QGroupBox(self.widget_7)
+        self.groupBox_16.setObjectName(u"groupBox_16")
+        sizePolicy.setHeightForWidth(self.groupBox_16.sizePolicy().hasHeightForWidth())
+        self.groupBox_16.setSizePolicy(sizePolicy)
+        self.groupBox_16.setFont(font2)
+        self.gridLayout_40 = QGridLayout(self.groupBox_16)
+        self.gridLayout_40.setSpacing(0)
+        self.gridLayout_40.setObjectName(u"gridLayout_40")
+        self.gridLayout_40.setContentsMargins(0, -1, 0, 0)
+        self.label_27 = QLabel(self.groupBox_16)
+        self.label_27.setObjectName(u"label_27")
+        self.label_27.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+
+        self.gridLayout_40.addWidget(self.label_27, 0, 0, 1, 1)
+
+
+        self.verticalLayout_13.addWidget(self.groupBox_16)
+
+
+        self.gridLayout_41.addLayout(self.verticalLayout_13, 0, 1, 1, 1)
+
+
+        self.gridLayout_42.addWidget(self.widget_7, 1, 0, 1, 1)
+
+        self.stackedWidget.addWidget(self.window_5)
+        self.window_6 = QWidget()
+        self.window_6.setObjectName(u"window_6")
+        self.gridLayout_48 = QGridLayout(self.window_6)
+        self.gridLayout_48.setSpacing(0)
+        self.gridLayout_48.setObjectName(u"gridLayout_48")
+        self.gridLayout_48.setContentsMargins(0, 0, 0, 0)
+        self.formLayout_10 = QFormLayout()
+        self.formLayout_10.setObjectName(u"formLayout_10")
+        self.formLayout_10.setHorizontalSpacing(0)
+        self.formLayout_10.setVerticalSpacing(0)
+        self.formLayout_10.setContentsMargins(-1, -1, 80, -1)
+        self.but_tool_ng4cam = QPushButton(self.window_6)
+        self.but_tool_ng4cam.setObjectName(u"but_tool_ng4cam")
+        self.but_tool_ng4cam.setMinimumSize(QSize(0, 30))
+        self.but_tool_ng4cam.setIcon(icon9)
+        self.but_tool_ng4cam.setCheckable(False)
+
+        self.formLayout_10.setWidget(0, QFormLayout.LabelRole, self.but_tool_ng4cam)
+
+        self.label_29 = QLabel(self.window_6)
+        self.label_29.setObjectName(u"label_29")
+        sizePolicy4.setHeightForWidth(self.label_29.sizePolicy().hasHeightForWidth())
+        self.label_29.setSizePolicy(sizePolicy4)
+        self.label_29.setFont(font)
+        self.label_29.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_10.setWidget(0, QFormLayout.FieldRole, self.label_29)
+
+
+        self.gridLayout_48.addLayout(self.formLayout_10, 0, 0, 1, 2)
+
+        self.groupBox_17 = QGroupBox(self.window_6)
+        self.groupBox_17.setObjectName(u"groupBox_17")
+        self.groupBox_17.setFont(font2)
+        self.gridLayout_43 = QGridLayout(self.groupBox_17)
+        self.gridLayout_43.setSpacing(0)
+        self.gridLayout_43.setObjectName(u"gridLayout_43")
+        self.gridLayout_43.setContentsMargins(0, 0, 0, 0)
+        self.listWidget_2 = QListWidget(self.groupBox_17)
+        self.listWidget_2.setObjectName(u"listWidget_2")
+        sizePolicy1.setHeightForWidth(self.listWidget_2.sizePolicy().hasHeightForWidth())
+        self.listWidget_2.setSizePolicy(sizePolicy1)
+
+        self.gridLayout_43.addWidget(self.listWidget_2, 0, 0, 1, 1)
+
+        self.verticalLayout_14 = QVBoxLayout()
+        self.verticalLayout_14.setSpacing(50)
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.verticalLayout_14.setContentsMargins(5, -1, 5, -1)
+        self.verticalSpacer_13 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_14.addItem(self.verticalSpacer_13)
+
+        self.pushButton_13 = QPushButton(self.groupBox_17)
+        self.pushButton_13.setObjectName(u"pushButton_13")
+        self.pushButton_13.setMinimumSize(QSize(50, 60))
+        self.pushButton_13.setIcon(icon24)
+
+        self.verticalLayout_14.addWidget(self.pushButton_13)
+
+        self.pushButton_14 = QPushButton(self.groupBox_17)
+        self.pushButton_14.setObjectName(u"pushButton_14")
+        self.pushButton_14.setMinimumSize(QSize(50, 60))
+        self.pushButton_14.setIcon(icon25)
+
+        self.verticalLayout_14.addWidget(self.pushButton_14)
+
+        self.verticalSpacer_14 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_14.addItem(self.verticalSpacer_14)
+
+
+        self.gridLayout_43.addLayout(self.verticalLayout_14, 0, 1, 1, 1)
+
+
+        self.gridLayout_48.addWidget(self.groupBox_17, 1, 0, 1, 1)
+
+        self.widget_8 = QWidget(self.window_6)
+        self.widget_8.setObjectName(u"widget_8")
+        self.gridLayout_47 = QGridLayout(self.widget_8)
+        self.gridLayout_47.setSpacing(0)
+        self.gridLayout_47.setObjectName(u"gridLayout_47")
+        self.gridLayout_47.setContentsMargins(0, 0, 0, 0)
+        self.widget_9 = QWidget(self.widget_8)
+        self.widget_9.setObjectName(u"widget_9")
+        self.gridLayout_46 = QGridLayout(self.widget_9)
+        self.gridLayout_46.setSpacing(10)
+        self.gridLayout_46.setObjectName(u"gridLayout_46")
+        self.gridLayout_46.setContentsMargins(0, -1, 0, 0)
+        self.groupBox_18 = QGroupBox(self.widget_9)
+        self.groupBox_18.setObjectName(u"groupBox_18")
+        self.groupBox_18.setFont(font2)
+        self.gridLayout_44 = QGridLayout(self.groupBox_18)
+        self.gridLayout_44.setSpacing(0)
+        self.gridLayout_44.setObjectName(u"gridLayout_44")
+        self.gridLayout_44.setContentsMargins(0, -1, 0, 0)
+        self.stackedWidget_7 = QStackedWidget(self.groupBox_18)
+        self.stackedWidget_7.setObjectName(u"stackedWidget_7")
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.gridLayout_49 = QGridLayout(self.page)
+        self.gridLayout_49.setSpacing(0)
+        self.gridLayout_49.setObjectName(u"gridLayout_49")
+        self.gridLayout_49.setContentsMargins(0, 0, 0, 0)
+        self.label_30 = QLabel(self.page)
+        self.label_30.setObjectName(u"label_30")
+        self.label_30.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+
+        self.gridLayout_49.addWidget(self.label_30, 0, 0, 1, 1)
+
+        self.stackedWidget_7.addWidget(self.page)
+        self.page_10 = QWidget()
+        self.page_10.setObjectName(u"page_10")
+        self.gridLayout_50 = QGridLayout(self.page_10)
+        self.gridLayout_50.setSpacing(0)
+        self.gridLayout_50.setObjectName(u"gridLayout_50")
+        self.gridLayout_50.setContentsMargins(0, 0, 0, 0)
+        self.label_34 = QLabel(self.page_10)
+        self.label_34.setObjectName(u"label_34")
+        self.label_34.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+
+        self.gridLayout_50.addWidget(self.label_34, 0, 0, 1, 1)
+
+        self.stackedWidget_7.addWidget(self.page_10)
+
+        self.gridLayout_44.addWidget(self.stackedWidget_7, 0, 0, 1, 1)
+
+
+        self.gridLayout_46.addWidget(self.groupBox_18, 0, 0, 1, 1)
+
+        self.groupBox_19 = QGroupBox(self.widget_9)
+        self.groupBox_19.setObjectName(u"groupBox_19")
+        self.groupBox_19.setFont(font2)
+        self.gridLayout_45 = QGridLayout(self.groupBox_19)
+        self.gridLayout_45.setSpacing(0)
+        self.gridLayout_45.setObjectName(u"gridLayout_45")
+        self.gridLayout_45.setContentsMargins(0, -1, 0, 0)
+        self.stackedWidget_8 = QStackedWidget(self.groupBox_19)
+        self.stackedWidget_8.setObjectName(u"stackedWidget_8")
+        self.page_11 = QWidget()
+        self.page_11.setObjectName(u"page_11")
+        self.gridLayout_51 = QGridLayout(self.page_11)
+        self.gridLayout_51.setSpacing(0)
+        self.gridLayout_51.setObjectName(u"gridLayout_51")
+        self.gridLayout_51.setContentsMargins(0, 0, 0, 0)
+        self.label_31 = QLabel(self.page_11)
+        self.label_31.setObjectName(u"label_31")
+        self.label_31.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+
+        self.gridLayout_51.addWidget(self.label_31, 0, 0, 1, 1)
+
+        self.stackedWidget_8.addWidget(self.page_11)
+        self.page_12 = QWidget()
+        self.page_12.setObjectName(u"page_12")
+        self.gridLayout_52 = QGridLayout(self.page_12)
+        self.gridLayout_52.setSpacing(0)
+        self.gridLayout_52.setObjectName(u"gridLayout_52")
+        self.gridLayout_52.setContentsMargins(0, 0, 0, 0)
+        self.label_35 = QLabel(self.page_12)
+        self.label_35.setObjectName(u"label_35")
+        self.label_35.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+
+        self.gridLayout_52.addWidget(self.label_35, 0, 0, 1, 1)
+
+        self.stackedWidget_8.addWidget(self.page_12)
+
+        self.gridLayout_45.addWidget(self.stackedWidget_8, 0, 0, 1, 1)
+
+
+        self.gridLayout_46.addWidget(self.groupBox_19, 0, 1, 1, 1)
+
+        self.groupBox_39 = QGroupBox(self.widget_9)
+        self.groupBox_39.setObjectName(u"groupBox_39")
+        self.groupBox_39.setFont(font2)
+        self.gridLayout_93 = QGridLayout(self.groupBox_39)
+        self.gridLayout_93.setSpacing(0)
+        self.gridLayout_93.setObjectName(u"gridLayout_93")
+        self.gridLayout_93.setContentsMargins(0, -1, 0, 0)
+        self.stackedWidget_9 = QStackedWidget(self.groupBox_39)
+        self.stackedWidget_9.setObjectName(u"stackedWidget_9")
+        self.page_25 = QWidget()
+        self.page_25.setObjectName(u"page_25")
+        self.gridLayout_94 = QGridLayout(self.page_25)
+        self.gridLayout_94.setSpacing(0)
+        self.gridLayout_94.setObjectName(u"gridLayout_94")
+        self.gridLayout_94.setContentsMargins(0, 0, 0, 0)
+        self.label_59 = QLabel(self.page_25)
+        self.label_59.setObjectName(u"label_59")
+        self.label_59.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+
+        self.gridLayout_94.addWidget(self.label_59, 0, 0, 1, 1)
+
+        self.stackedWidget_9.addWidget(self.page_25)
+        self.page_26 = QWidget()
+        self.page_26.setObjectName(u"page_26")
+        self.gridLayout_95 = QGridLayout(self.page_26)
+        self.gridLayout_95.setSpacing(0)
+        self.gridLayout_95.setObjectName(u"gridLayout_95")
+        self.gridLayout_95.setContentsMargins(0, 0, 0, 0)
+        self.label_60 = QLabel(self.page_26)
+        self.label_60.setObjectName(u"label_60")
+        self.label_60.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+
+        self.gridLayout_95.addWidget(self.label_60, 0, 0, 1, 1)
+
+        self.stackedWidget_9.addWidget(self.page_26)
+
+        self.gridLayout_93.addWidget(self.stackedWidget_9, 0, 0, 1, 1)
+
+
+        self.gridLayout_46.addWidget(self.groupBox_39, 1, 0, 1, 1)
+
+        self.groupBox_40 = QGroupBox(self.widget_9)
+        self.groupBox_40.setObjectName(u"groupBox_40")
+        self.groupBox_40.setFont(font2)
+        self.gridLayout_96 = QGridLayout(self.groupBox_40)
+        self.gridLayout_96.setSpacing(0)
+        self.gridLayout_96.setObjectName(u"gridLayout_96")
+        self.gridLayout_96.setContentsMargins(0, -1, 0, 0)
+        self.stackedWidget_17 = QStackedWidget(self.groupBox_40)
+        self.stackedWidget_17.setObjectName(u"stackedWidget_17")
+        self.page_27 = QWidget()
+        self.page_27.setObjectName(u"page_27")
+        self.gridLayout_97 = QGridLayout(self.page_27)
+        self.gridLayout_97.setSpacing(0)
+        self.gridLayout_97.setObjectName(u"gridLayout_97")
+        self.gridLayout_97.setContentsMargins(0, 0, 0, 0)
+        self.label_61 = QLabel(self.page_27)
+        self.label_61.setObjectName(u"label_61")
+        self.label_61.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+
+        self.gridLayout_97.addWidget(self.label_61, 0, 0, 1, 1)
+
+        self.stackedWidget_17.addWidget(self.page_27)
+        self.page_28 = QWidget()
+        self.page_28.setObjectName(u"page_28")
+        self.gridLayout_98 = QGridLayout(self.page_28)
+        self.gridLayout_98.setSpacing(0)
+        self.gridLayout_98.setObjectName(u"gridLayout_98")
+        self.gridLayout_98.setContentsMargins(0, 0, 0, 0)
+        self.label_62 = QLabel(self.page_28)
+        self.label_62.setObjectName(u"label_62")
+        self.label_62.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+
+        self.gridLayout_98.addWidget(self.label_62, 0, 0, 1, 1)
+
+        self.stackedWidget_17.addWidget(self.page_28)
+
+        self.gridLayout_96.addWidget(self.stackedWidget_17, 0, 0, 1, 1)
+
+
+        self.gridLayout_46.addWidget(self.groupBox_40, 1, 1, 1, 1)
+
+
+        self.gridLayout_47.addWidget(self.widget_9, 0, 0, 1, 1)
+
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setSpacing(20)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_12)
+
+        self.pushButton_15 = QPushButton(self.widget_8)
+        self.pushButton_15.setObjectName(u"pushButton_15")
+        self.pushButton_15.setMinimumSize(QSize(60, 50))
+        icon26 = QIcon()
+        icon26.addFile(u":/icon/icons/Navigation-Arrows-Left-1--Streamline-Ultimate.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.pushButton_15.setIcon(icon26)
+
+        self.horizontalLayout_5.addWidget(self.pushButton_15)
+
+        self.pushButton_16 = QPushButton(self.widget_8)
+        self.pushButton_16.setObjectName(u"pushButton_16")
+        self.pushButton_16.setMinimumSize(QSize(60, 50))
+        self.pushButton_16.setIcon(icon17)
+
+        self.horizontalLayout_5.addWidget(self.pushButton_16)
+
+        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_13)
+
+
+        self.gridLayout_47.addLayout(self.horizontalLayout_5, 1, 0, 1, 1)
+
+
+        self.gridLayout_48.addWidget(self.widget_8, 1, 1, 1, 1)
+
+        self.stackedWidget.addWidget(self.window_6)
+        self.window_7 = QWidget()
+        self.window_7.setObjectName(u"window_7")
+        self.gridLayout_57 = QGridLayout(self.window_7)
+        self.gridLayout_57.setSpacing(0)
+        self.gridLayout_57.setObjectName(u"gridLayout_57")
+        self.gridLayout_57.setContentsMargins(0, 0, 0, 0)
+        self.formLayout_11 = QFormLayout()
+        self.formLayout_11.setObjectName(u"formLayout_11")
+        self.formLayout_11.setHorizontalSpacing(0)
+        self.formLayout_11.setVerticalSpacing(0)
+        self.formLayout_11.setContentsMargins(-1, -1, 80, -1)
+        self.but_tool_output = QPushButton(self.window_7)
+        self.but_tool_output.setObjectName(u"but_tool_output")
+        self.but_tool_output.setMinimumSize(QSize(0, 30))
+        self.but_tool_output.setIcon(icon9)
+        self.but_tool_output.setCheckable(False)
+
+        self.formLayout_11.setWidget(0, QFormLayout.LabelRole, self.but_tool_output)
+
+        self.label_38 = QLabel(self.window_7)
+        self.label_38.setObjectName(u"label_38")
+        sizePolicy4.setHeightForWidth(self.label_38.sizePolicy().hasHeightForWidth())
+        self.label_38.setSizePolicy(sizePolicy4)
+        self.label_38.setFont(font)
+        self.label_38.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_11.setWidget(0, QFormLayout.FieldRole, self.label_38)
+
+
+        self.gridLayout_57.addLayout(self.formLayout_11, 0, 0, 1, 1)
+
+        self.widget_10 = QWidget(self.window_7)
+        self.widget_10.setObjectName(u"widget_10")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.widget_10.sizePolicy().hasHeightForWidth())
+        self.widget_10.setSizePolicy(sizePolicy5)
+        self.widget_10.setMinimumSize(QSize(0, 100))
+        self.gridLayout_55 = QGridLayout(self.widget_10)
+        self.gridLayout_55.setSpacing(0)
+        self.gridLayout_55.setObjectName(u"gridLayout_55")
+        self.gridLayout_55.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_15 = QVBoxLayout()
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.label_32 = QLabel(self.widget_10)
+        self.label_32.setObjectName(u"label_32")
+        font3 = QFont()
+        font3.setPointSize(10)
+        self.label_32.setFont(font3)
+
+        self.verticalLayout_15.addWidget(self.label_32)
+
+        self.label_33 = QLabel(self.widget_10)
+        self.label_33.setObjectName(u"label_33")
+        self.label_33.setFont(font3)
+
+        self.verticalLayout_15.addWidget(self.label_33)
+
+
+        self.gridLayout_55.addLayout(self.verticalLayout_15, 0, 0, 1, 1)
+
+        self.verticalLayout_16 = QVBoxLayout()
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.gridLayout_53 = QGridLayout()
+        self.gridLayout_53.setObjectName(u"gridLayout_53")
+        self.label_36 = QLabel(self.widget_10)
+        self.label_36.setObjectName(u"label_36")
+        self.label_36.setMinimumSize(QSize(0, 50))
+        self.label_36.setFont(font3)
+
+        self.gridLayout_53.addWidget(self.label_36, 0, 0, 1, 1)
+
+        self.lineEdit = QLineEdit(self.widget_10)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setMinimumSize(QSize(0, 50))
+        self.lineEdit.setFont(font3)
+
+        self.gridLayout_53.addWidget(self.lineEdit, 0, 1, 1, 1)
+
+
+        self.verticalLayout_16.addLayout(self.gridLayout_53)
+
+        self.label_37 = QLabel(self.widget_10)
+        self.label_37.setObjectName(u"label_37")
+        self.label_37.setMinimumSize(QSize(0, 50))
+        self.label_37.setFont(font3)
+
+        self.verticalLayout_16.addWidget(self.label_37)
+
+        self.gridLayout_54 = QGridLayout()
+        self.gridLayout_54.setSpacing(50)
+        self.gridLayout_54.setObjectName(u"gridLayout_54")
+        self.gridLayout_54.setContentsMargins(100, -1, 20, -1)
+        self.pushButton_17 = QPushButton(self.widget_10)
+        self.pushButton_17.setObjectName(u"pushButton_17")
+        self.pushButton_17.setMinimumSize(QSize(0, 50))
+        self.pushButton_17.setMaximumSize(QSize(100, 16777215))
+
+        self.gridLayout_54.addWidget(self.pushButton_17, 0, 0, 1, 1)
+
+        self.pushButton_19 = QPushButton(self.widget_10)
+        self.pushButton_19.setObjectName(u"pushButton_19")
+        self.pushButton_19.setMinimumSize(QSize(0, 50))
+        self.pushButton_19.setMaximumSize(QSize(100, 16777215))
+
+        self.gridLayout_54.addWidget(self.pushButton_19, 0, 1, 1, 1)
+
+
+        self.verticalLayout_16.addLayout(self.gridLayout_54)
+
+
+        self.gridLayout_55.addLayout(self.verticalLayout_16, 0, 1, 1, 1)
+
+
+        self.gridLayout_57.addWidget(self.widget_10, 1, 0, 1, 1)
+
+        self.groupBox_20 = QGroupBox(self.window_7)
+        self.groupBox_20.setObjectName(u"groupBox_20")
+        font4 = QFont()
+        font4.setPointSize(10)
+        font4.setBold(False)
+        self.groupBox_20.setFont(font4)
+        self.groupBox_20.setAlignment(Qt.AlignCenter)
+        self.gridLayout_56 = QGridLayout(self.groupBox_20)
+        self.gridLayout_56.setSpacing(0)
+        self.gridLayout_56.setObjectName(u"gridLayout_56")
+        self.gridLayout_56.setContentsMargins(0, 10, 0, 0)
+        self.horizontalSpacer_17 = QSpacerItem(143, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_56.addItem(self.horizontalSpacer_17, 0, 2, 1, 1)
+
+        self.horizontalSpacer_16 = QSpacerItem(144, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_56.addItem(self.horizontalSpacer_16, 0, 0, 1, 1)
+
+        self.tableWidget = QTableWidget(self.groupBox_20)
+        self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setMinimumSize(QSize(600, 0))
+
+        self.gridLayout_56.addWidget(self.tableWidget, 0, 1, 1, 1)
+
+
+        self.gridLayout_57.addWidget(self.groupBox_20, 2, 0, 1, 1)
+
+        self.stackedWidget.addWidget(self.window_7)
 
         self.gridLayout.addWidget(self.stackedWidget, 0, 2, 1, 1)
 
@@ -1340,7 +1936,9 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.window_header.sizePolicy().hasHeightForWidth())
         self.window_header.setSizePolicy(sizePolicy4)
         self.horizontalLayout = QHBoxLayout(self.window_header)
+        self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.formLayout = QFormLayout()
         self.formLayout.setObjectName(u"formLayout")
         self.formLayout.setHorizontalSpacing(0)
@@ -1368,10 +1966,10 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.window_header)
         self.label.setObjectName(u"label")
-        font3 = QFont()
-        font3.setPointSize(16)
-        font3.setBold(True)
-        self.label.setFont(font3)
+        font5 = QFont()
+        font5.setPointSize(16)
+        font5.setBold(True)
+        self.label.setFont(font5)
         self.label.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout.addWidget(self.label)
@@ -1433,11 +2031,15 @@ class Ui_MainWindow(object):
         self.but_information_icon.toggled.connect(self.but_information_expand.setChecked)
         self.but_information_expand.toggled.connect(self.but_information_icon.setChecked)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(0)
         self.stackedWidget_2.setCurrentIndex(1)
-        self.stackedWidget_3.setCurrentIndex(1)
+        self.stackedWidget_3.setCurrentIndex(0)
         self.stackedWidget_4.setCurrentIndex(1)
-        self.stackedWidget_5.setCurrentIndex(0)
+        self.stackedWidget_5.setCurrentIndex(1)
+        self.stackedWidget_7.setCurrentIndex(1)
+        self.stackedWidget_8.setCurrentIndex(1)
+        self.stackedWidget_9.setCurrentIndex(1)
+        self.stackedWidget_17.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1528,6 +2130,43 @@ class Ui_MainWindow(object):
         self.label_20.setText(QCoreApplication.translate("MainWindow", u"Ng\u01b0\u1ee1ng ph\u00e2n \u0111\u1ecbnh:                ", None))
         self.pushButton_9.setText(QCoreApplication.translate("MainWindow", u"H\u00ecnh \u1ea3nh th\u1ef1c t\u1ebf", None))
         self.pushButton_10.setText(QCoreApplication.translate("MainWindow", u"K\u1ebft qu\u1ea3 ", None))
+        self.but_tool_ng1cam.setText(QCoreApplication.translate("MainWindow", u"Thanh c\u00f4ng c\u1ee5", None))
+        self.label_28.setText(QCoreApplication.translate("MainWindow", u"NG 1 Cam", None))
+        self.groupBox_14.setTitle(QCoreApplication.translate("MainWindow", u"Danh s\u00e1ch NG", None))
+        self.pushButton_11.setText("")
+        self.pushButton_12.setText("")
+        self.groupBox_15.setTitle(QCoreApplication.translate("MainWindow", u"H\u00ecnh \u1ea3nh th\u1ef1c t\u1ebf ", None))
+        self.label_25.setText("")
+        self.groupBox_16.setTitle(QCoreApplication.translate("MainWindow", u"K\u1ebft qu\u1ea3 ", None))
+        self.label_27.setText("")
+        self.but_tool_ng4cam.setText(QCoreApplication.translate("MainWindow", u"Thanh c\u00f4ng c\u1ee5", None))
+        self.label_29.setText(QCoreApplication.translate("MainWindow", u"NG 4 Cam", None))
+        self.groupBox_17.setTitle(QCoreApplication.translate("MainWindow", u"Danh s\u00e1ch NG", None))
+        self.pushButton_13.setText("")
+        self.pushButton_14.setText("")
+        self.groupBox_18.setTitle(QCoreApplication.translate("MainWindow", u"M\u00e0n h\u00ecnh 1", None))
+        self.label_30.setText("")
+        self.label_34.setText("")
+        self.groupBox_19.setTitle(QCoreApplication.translate("MainWindow", u"M\u00e0n h\u00ecnh 3", None))
+        self.label_31.setText("")
+        self.label_35.setText("")
+        self.groupBox_39.setTitle(QCoreApplication.translate("MainWindow", u"M\u00e0n h\u00ecnh 2", None))
+        self.label_59.setText("")
+        self.label_60.setText("")
+        self.groupBox_40.setTitle(QCoreApplication.translate("MainWindow", u"M\u00e0n h\u00ecnh 4", None))
+        self.label_61.setText("")
+        self.label_62.setText("")
+        self.pushButton_15.setText("")
+        self.pushButton_16.setText("")
+        self.but_tool_output.setText(QCoreApplication.translate("MainWindow", u"Thanh c\u00f4ng c\u1ee5", None))
+        self.label_38.setText(QCoreApplication.translate("MainWindow", u"S\u1ea3n l\u01b0\u1ee3ng ", None))
+        self.label_32.setText(QCoreApplication.translate("MainWindow", u"T\u1eeb ng\u00e0y :                                       ", None))
+        self.label_33.setText(QCoreApplication.translate("MainWindow", u"\u0110\u1ebfn ng\u00e0y:                                       ", None))
+        self.label_36.setText(QCoreApplication.translate("MainWindow", u"Nh\u1eadp gi\u00e1 tr\u1ecb 1 set:", None))
+        self.label_37.setText(QCoreApplication.translate("MainWindow", u"Gi\u00e1 tr\u1ecb hi\u1ec7n t\u1ea1i:", None))
+        self.pushButton_17.setText(QCoreApplication.translate("MainWindow", u"B\u1eaft \u0111\u1ea7u l\u1ea1i ", None))
+        self.pushButton_19.setText(QCoreApplication.translate("MainWindow", u"L\u01b0u gi\u00e1 tr\u1ecb ", None))
+        self.groupBox_20.setTitle(QCoreApplication.translate("MainWindow", u"B\u1ea3ng theo d\u00f5i s\u1ea3n l\u01b0\u1ee3ng ", None))
         self.label_2.setText("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"Pronics Precision Automation", None))
         self.label_3.setText("")

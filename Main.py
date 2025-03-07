@@ -1,20 +1,4 @@
-import sys
-import os
-# os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "0"  # Tắt auto-scaling DPI
-# os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "0"
-# os.environ["QT_SCALE_FACTOR"] = "1"
-import cv2
-import time
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtCore import QDateTime, QTimer
-from PyQt5.QtGui import QImage, QPixmap
-from multiprocessing import Queue
-import queue
-from pypylon import pylon
-import threading
-import psutil
-
-
+from import_all import*
 from main_gui import Ui_MainWindow  # Import file giao diện PyQt5
 
 class MainWindow(QMainWindow):
@@ -22,13 +6,11 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.update_info()
+        self.read_and_update_time_date()
+        UI_of_main_gui.change_window(self)
+        
         self.ui.window_expand.hide()
 
-        self.ui.but_tool_cam1.clicked.connect(self.toggle_visibility)
-        self.ui.but_tool_calib.clicked.connect(self.toggle_visibility)
-        self.ui.but_tool_4cam.clicked.connect(self.toggle_visibility)
-        self.ui.but_tool_take.clicked.connect(self.toggle_visibility)
 
         # Tạo QTimer để cập nhật thời gian mỗi giây
         self.timer = QTimer(self)
@@ -39,10 +21,16 @@ class MainWindow(QMainWindow):
         self.ram=0
         self.disk=0
 
+        
+
+    def read_and_update_time_date(self):
+        # Initial setup time and date with GUI
+        self.update_info()
         # Tạo QTimer để cập nhật mỗi phút (60000 ms)
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_info)
-        self.timer.start(60000)  # Cập nhật sau mỗi 60 giây
+        self.timer.start(30000)  # Update after 30s
+
 
     def update_info(self):
         """Hàm cập nhật thông tin RAM và Disk"""
@@ -65,6 +53,8 @@ class MainWindow(QMainWindow):
         self.ui.window_icon.setVisible(not self.ui.window_icon.isVisible())
 
 if __name__ == "__main__":
+    ### Convert 
+    convert_ui_qrc_to_py()
     app = QApplication(sys.argv)
     main_win = MainWindow()
     main_win.show()
