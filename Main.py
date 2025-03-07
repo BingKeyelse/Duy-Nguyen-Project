@@ -1,8 +1,8 @@
 import sys
 import os
-os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "0"  # Tắt auto-scaling DPI
-os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "0"
-os.environ["QT_SCALE_FACTOR"] = "1"
+# os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "0"  # Tắt auto-scaling DPI
+# os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "0"
+# os.environ["QT_SCALE_FACTOR"] = "1"
 import cv2
 import time
 from PyQt5.QtWidgets import QApplication, QMainWindow
