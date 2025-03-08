@@ -5,20 +5,18 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.read_and_update_time_date()
-        UI_of_main_gui.change_window(self)
+        
         
         
         self.ui.window_expand.hide()
+
+        #### Funtion UI
+        UI_of_main_gui.update_ram_and_disk_time_and_date(self)
+        UI_of_main_gui.change_window(self)
         UI_of_main_gui.tranfer_window(self)
+
         
 
-
-
-        # Tạo QTimer để cập nhật thời gian mỗi giây
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.update_time)
-        self.timer.start(1000)  # 1000ms = 1 giây
 
         #
         self.ram=0
@@ -26,30 +24,9 @@ class MainWindow(QMainWindow):
 
         
 
-    def read_and_update_time_date(self):
-        # Initial setup time and date with GUI
-        self.update_info()
-        # Tạo QTimer để cập nhật mỗi phút (60000 ms)
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.update_info)
-        self.timer.start(30000)  # Update after 30s
 
-
-    def update_info(self):
-        """Hàm cập nhật thông tin RAM và Disk"""
-        self.ram = psutil.virtual_memory()
-        self.disk = psutil.disk_usage('/')
-
-        ram_text = f"RAM: {self.ram.percent}% ({self.ram.used / 1e9:.2f} GB / {self.ram.total / 1e9:.2f} GB)"
-        disk_text = f"Disk: {self.disk.percent}% ({self.disk.used / 1e9:.2f} GB / {self.disk.total / 1e9:.2f} GB)"
-
-        self.ui.show_ram_header.setText(f'Ram: {ram_text}')
-        self.ui.show_disk_header.setText(f'Disk: {disk_text}')
-
-    def update_time(self):
-        """Hàm cập nhật thời gian vào QDateTimeEdit"""
-        current_time = QDateTime.currentDateTime()
-        self.ui.time_and_day.setDateTime(current_time)
+    # def update_time_and_date(self):
+        
 
     def toggle_visibility(self):
         self.ui.window_expand.setVisible(not self.ui.window_expand.isVisible())
