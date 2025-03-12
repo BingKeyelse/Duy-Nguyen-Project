@@ -668,24 +668,32 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setContentsMargins(-1, -1, 10, -1)
         self.slider_h_high_cam1 = QSlider(self.widget_4)
         self.slider_h_high_cam1.setObjectName(u"slider_h_high_cam1")
+        self.slider_h_high_cam1.setMaximum(179)
+        self.slider_h_high_cam1.setPageStep(1)
         self.slider_h_high_cam1.setOrientation(Qt.Horizontal)
 
         self.verticalLayout_8.addWidget(self.slider_h_high_cam1)
 
         self.slider_s_high_cam1 = QSlider(self.widget_4)
         self.slider_s_high_cam1.setObjectName(u"slider_s_high_cam1")
+        self.slider_s_high_cam1.setMaximum(255)
+        self.slider_s_high_cam1.setPageStep(1)
         self.slider_s_high_cam1.setOrientation(Qt.Horizontal)
 
         self.verticalLayout_8.addWidget(self.slider_s_high_cam1)
 
         self.slider_v_high_cam1 = QSlider(self.widget_4)
         self.slider_v_high_cam1.setObjectName(u"slider_v_high_cam1")
+        self.slider_v_high_cam1.setMaximum(255)
+        self.slider_v_high_cam1.setPageStep(1)
         self.slider_v_high_cam1.setOrientation(Qt.Horizontal)
 
         self.verticalLayout_8.addWidget(self.slider_v_high_cam1)
 
         self.slider_bright_cam1 = QSlider(self.widget_4)
         self.slider_bright_cam1.setObjectName(u"slider_bright_cam1")
+        self.slider_bright_cam1.setMinimum(-255)
+        self.slider_bright_cam1.setMaximum(255)
         self.slider_bright_cam1.setOrientation(Qt.Horizontal)
 
         self.verticalLayout_8.addWidget(self.slider_bright_cam1)
@@ -747,27 +755,32 @@ class Ui_MainWindow(object):
         self.verticalLayout_10.setContentsMargins(-1, -1, 5, -1)
         self.slider_h_low_cam1 = QSlider(self.widget_5)
         self.slider_h_low_cam1.setObjectName(u"slider_h_low_cam1")
+        self.slider_h_low_cam1.setMaximum(179)
+        self.slider_h_low_cam1.setPageStep(1)
         self.slider_h_low_cam1.setOrientation(Qt.Horizontal)
 
         self.verticalLayout_10.addWidget(self.slider_h_low_cam1)
 
         self.slider_s_low_cam1 = QSlider(self.widget_5)
         self.slider_s_low_cam1.setObjectName(u"slider_s_low_cam1")
+        self.slider_s_low_cam1.setMaximum(255)
+        self.slider_s_low_cam1.setPageStep(1)
         self.slider_s_low_cam1.setOrientation(Qt.Horizontal)
 
         self.verticalLayout_10.addWidget(self.slider_s_low_cam1)
 
         self.slider_v_low_cam1 = QSlider(self.widget_5)
         self.slider_v_low_cam1.setObjectName(u"slider_v_low_cam1")
+        self.slider_v_low_cam1.setMaximum(255)
+        self.slider_v_low_cam1.setPageStep(1)
         self.slider_v_low_cam1.setOrientation(Qt.Horizontal)
 
         self.verticalLayout_10.addWidget(self.slider_v_low_cam1)
 
-        self.slider_contrast_cam1 = QSlider(self.widget_5)
-        self.slider_contrast_cam1.setObjectName(u"slider_contrast_cam1")
-        self.slider_contrast_cam1.setOrientation(Qt.Horizontal)
+        self.show_value_contrast_cam1 = QLineEdit(self.widget_5)
+        self.show_value_contrast_cam1.setObjectName(u"show_value_contrast_cam1")
 
-        self.verticalLayout_10.addWidget(self.slider_contrast_cam1)
+        self.verticalLayout_10.addWidget(self.show_value_contrast_cam1)
 
         self.horizontalSpacer_7 = QSpacerItem(40, 10, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -2043,7 +2056,7 @@ class Ui_MainWindow(object):
         self.but_information_icon.toggled.connect(self.but_information_expand.setChecked)
         self.but_information_expand.toggled.connect(self.but_information_icon.setChecked)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.stackedWidget_2.setCurrentIndex(1)
         self.space_screen2_4cam.setCurrentIndex(1)
         self.space_screen4_4cam.setCurrentIndex(1)
@@ -2104,6 +2117,7 @@ class Ui_MainWindow(object):
         self.show_v_low_cam1.setText(QCoreApplication.translate("MainWindow", u"V th\u1ea5p", None))
         self.show_contrast_cam1.setText(QCoreApplication.translate("MainWindow", u"\u0110\u1ed9 th\u01b0\u01a1ng ph\u1ea3n:             ", None))
         self.show_value_now_cam1.setText(QCoreApplication.translate("MainWindow", u"Gi\u00e1 tr\u1ecb hi\u1ec7n t\u1ea1i", None))
+        self.show_value_contrast_cam1.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0111\u1ed9 t\u01b0\u01a1ng ph\u1ea3n 0.0-3.0", None))
         self.but_tool_calib.setText(QCoreApplication.translate("MainWindow", u"Thanh c\u00f4ng c\u1ee5", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"M\u00e0n h\u00ecnh Calib", None))
         self.show_pic_calib_calib.setText("")

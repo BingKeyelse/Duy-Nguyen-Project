@@ -1,4 +1,6 @@
-from import_all import*
+# from import_all import*
+import subprocess
+
 
 
 # Định nghĩa file giao diện và file output
@@ -12,5 +14,6 @@ file_qrc_to_py = "icons_rc.py"
 def convert_ui_qrc_to_py():
     subprocess.run(f"pyuic5 {file_ui} -o {file_ui_to_py}", shell=True)
     subprocess.run(f"pyrcc5 {file_qrc} -o {file_qrc_to_py}", shell=True)
-    time.sleep(1)
     print("UI updated successfully.")
+
+convert_ui_qrc_to_py()

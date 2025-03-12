@@ -4,9 +4,14 @@ import sys
 import time
 import threading
 import queue
-from multiprocessing import Queue
+from multiprocessing import Queue, Value
 import psutil
 import subprocess
+from natsort import natsorted
+import codecs, json
+import numpy as np
+import matplotlib.image as mpimg
+import glob
 
 
 # ===== Thiết lập môi trường cho Qt trước khi import PyQt5 =====
@@ -17,8 +22,8 @@ os.environ["QT_SCALE_FACTOR"] = "1"
 # ===== Thư viện bên thứ ba =====
 import cv2
 from pypylon import pylon
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtCore import QDateTime, QTimer
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QSizePolicy, QLayout
+from PyQt5.QtCore import QDateTime, QTimer, Qt
 from PyQt5.QtGui import QImage, QPixmap
 
 # ===== Module nội bộ của dự án =====
@@ -26,3 +31,5 @@ import  auto_tranfer_file
 from Main import MainWindow
 from ui_effect_gui import UI_of_main_gui
 from main_gui import Ui_MainWindow
+from calib_function import Calib
+from cam1_function import Cam_1

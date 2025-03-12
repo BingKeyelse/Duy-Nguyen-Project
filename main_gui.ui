@@ -571,7 +571,7 @@ QSlider::sub-page:horizontal {
 }</string>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="window_1">
          <layout class="QGridLayout" name="gridLayout_10">
@@ -1208,6 +1208,12 @@ border: 2px solid black;</string>
                   </property>
                   <item>
                    <widget class="QSlider" name="slider_h_high_cam1">
+                    <property name="maximum">
+                     <number>179</number>
+                    </property>
+                    <property name="pageStep">
+                     <number>1</number>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -1215,6 +1221,12 @@ border: 2px solid black;</string>
                   </item>
                   <item>
                    <widget class="QSlider" name="slider_s_high_cam1">
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                    <property name="pageStep">
+                     <number>1</number>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -1222,6 +1234,12 @@ border: 2px solid black;</string>
                   </item>
                   <item>
                    <widget class="QSlider" name="slider_v_high_cam1">
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                    <property name="pageStep">
+                     <number>1</number>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -1229,6 +1247,12 @@ border: 2px solid black;</string>
                   </item>
                   <item>
                    <widget class="QSlider" name="slider_bright_cam1">
+                    <property name="minimum">
+                     <number>-255</number>
+                    </property>
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -1322,6 +1346,12 @@ border: 2px solid black;</string>
                   </property>
                   <item>
                    <widget class="QSlider" name="slider_h_low_cam1">
+                    <property name="maximum">
+                     <number>179</number>
+                    </property>
+                    <property name="pageStep">
+                     <number>1</number>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -1329,6 +1359,12 @@ border: 2px solid black;</string>
                   </item>
                   <item>
                    <widget class="QSlider" name="slider_s_low_cam1">
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                    <property name="pageStep">
+                     <number>1</number>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -1336,15 +1372,21 @@ border: 2px solid black;</string>
                   </item>
                   <item>
                    <widget class="QSlider" name="slider_v_low_cam1">
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                    <property name="pageStep">
+                     <number>1</number>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QSlider" name="slider_contrast_cam1">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                   <widget class="QLineEdit" name="show_value_contrast_cam1">
+                    <property name="placeholderText">
+                     <string>độ tương phản 0.0-3.0</string>
                     </property>
                    </widget>
                   </item>

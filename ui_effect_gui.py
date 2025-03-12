@@ -8,7 +8,11 @@ class UI_of_main_gui(MainWindow):
             self.ui.but_tool_output
         ]
         for button in buttons:
-            button.clicked.connect(self.toggle_visibility)
+            button.clicked.connect(lambda: UI_of_main_gui.toggle_visibility(self))
+
+    def toggle_visibility(self):
+        self.ui.window_expand.setVisible(not self.ui.window_expand.isVisible())
+        self.ui.window_icon.setVisible(not self.ui.window_icon.isVisible())
 
     def tranfer_window(self):
          
@@ -33,7 +37,11 @@ class UI_of_main_gui(MainWindow):
          for button, widget in mapping.items():
             button.clicked.connect(lambda _, w=widget: self.ui.stackedWidget.setCurrentWidget(w))
     
+
     def update_ram_and_disk_time_and_date(self):
+        # Khởi tạo biến
+        self.ram=0
+        self.disk=0
         # Initial setup time and date with GUI
         UI_of_main_gui.update_info_time_date(self)
         UI_of_main_gui.update_info_disk_ram(self)
@@ -69,7 +77,28 @@ class UI_of_main_gui(MainWindow):
         self.ui.show_ram_header.setText(f'{ram_text}')
         self.ui.show_disk_header.setText(f'{disk_text}')
     
+    def show_image_3chanel(self,image,label):
+        """Hiển thị ảnh OpenCV trên QLabel."""
+        initial_size = label.size()  # Kích thước QLabel
+        # label.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Ignored)
+        resized_img = cv2.resize(image, (initial_size.width(), initial_size.height()), interpolation=cv2.INTER_CUBIC )
+
+        img_height, img_width, img_channel = resized_img.shape
+        q_image = QImage(resized_img.data, img_width, img_height, img_width * img_channel, QImage.Format.Format_RGB888)
+        label.setPixmap(QPixmap.fromImage(q_image))
+        
+    def show_image_1chanel(self,image,label):
+        """Hiển thị ảnh OpenCV trên QLabel."""
+        initial_size = label.size()  # Kích thước QLabel
+        # label.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Ignored)
+        resized_img = cv2.resize(image, (initial_size.width(), initial_size.height()), interpolation=cv2.INTER_LINEAR)
+
+        img_height, img_width = resized_img.shape
+        q_image = QImage(resized_img.data, img_width, img_height, img_width , QImage.Format.Format_Grayscale8)
+        label.setPixmap(QPixmap.fromImage(q_image))
+
     
+
 
 
 
