@@ -453,6 +453,19 @@ class Ui_MainWindow(object):
         self.show_pic_thread_cam1.setObjectName("show_pic_thread_cam1")
         self.gridLayout_6.addWidget(self.show_pic_thread_cam1, 0, 0, 1, 1)
         self.stackedWidget_2.addWidget(self.thread)
+        self.vitual = QtWidgets.QWidget()
+        self.vitual.setObjectName("vitual")
+        self.gridLayout_20 = QtWidgets.QGridLayout(self.vitual)
+        self.gridLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_20.setSpacing(0)
+        self.gridLayout_20.setObjectName("gridLayout_20")
+        self.show_pic_virtual_cam1 = QtWidgets.QLabel(self.vitual)
+        self.show_pic_virtual_cam1.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+        self.show_pic_virtual_cam1.setText("")
+        self.show_pic_virtual_cam1.setObjectName("show_pic_virtual_cam1")
+        self.gridLayout_20.addWidget(self.show_pic_virtual_cam1, 0, 0, 1, 1)
+        self.stackedWidget_2.addWidget(self.vitual)
         self.gridLayout_4.addWidget(self.stackedWidget_2, 0, 0, 1, 1)
         self.gridLayout_7.addWidget(self.groupBox_2, 0, 1, 1, 1)
         self.formLayout_4.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.widget)
@@ -606,6 +619,9 @@ class Ui_MainWindow(object):
         self.show_v_low_cam1 = QtWidgets.QLabel(self.widget_5)
         self.show_v_low_cam1.setObjectName("show_v_low_cam1")
         self.verticalLayout_9.addWidget(self.show_v_low_cam1)
+        self.show_r_circle_cam1 = QtWidgets.QLabel(self.widget_5)
+        self.show_r_circle_cam1.setObjectName("show_r_circle_cam1")
+        self.verticalLayout_9.addWidget(self.show_r_circle_cam1)
         self.show_contrast_cam1 = QtWidgets.QLabel(self.widget_5)
         self.show_contrast_cam1.setObjectName("show_contrast_cam1")
         self.verticalLayout_9.addWidget(self.show_contrast_cam1)
@@ -635,10 +651,16 @@ class Ui_MainWindow(object):
         self.slider_v_low_cam1.setOrientation(QtCore.Qt.Horizontal)
         self.slider_v_low_cam1.setObjectName("slider_v_low_cam1")
         self.verticalLayout_10.addWidget(self.slider_v_low_cam1)
+        self.slider_r_circle_cam1 = QtWidgets.QSlider(self.widget_5)
+        self.slider_r_circle_cam1.setMaximum(2000)
+        self.slider_r_circle_cam1.setPageStep(1)
+        self.slider_r_circle_cam1.setOrientation(QtCore.Qt.Horizontal)
+        self.slider_r_circle_cam1.setObjectName("slider_r_circle_cam1")
+        self.verticalLayout_10.addWidget(self.slider_r_circle_cam1)
         self.show_value_contrast_cam1 = QtWidgets.QLineEdit(self.widget_5)
         self.show_value_contrast_cam1.setObjectName("show_value_contrast_cam1")
         self.verticalLayout_10.addWidget(self.show_value_contrast_cam1)
-        spacerItem9 = QtWidgets.QSpacerItem(40, 10, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem9 = QtWidgets.QSpacerItem(20, 15, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.verticalLayout_10.addItem(spacerItem9)
         self.gridLayout_11.addLayout(self.verticalLayout_10, 0, 1, 1, 1)
         self.gridLayout_12.addWidget(self.widget_5, 0, 1, 1, 1)
@@ -1750,8 +1772,8 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
-        self.stackedWidget_2.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget_2.setCurrentIndex(2)
         self.space_screen2_4cam.setCurrentIndex(1)
         self.space_screen4_4cam.setCurrentIndex(1)
         self.space_screen1_4cam.setCurrentIndex(1)
@@ -1809,6 +1831,7 @@ class Ui_MainWindow(object):
         self.show_h_low_cam1.setText(_translate("MainWindow", "H thấp"))
         self.show_s_low_cam1.setText(_translate("MainWindow", "S thấp"))
         self.show_v_low_cam1.setText(_translate("MainWindow", "V thấp"))
+        self.show_r_circle_cam1.setText(_translate("MainWindow", "R tròn tâm"))
         self.show_contrast_cam1.setText(_translate("MainWindow", "Độ thương phản:             "))
         self.show_value_now_cam1.setText(_translate("MainWindow", "Giá trị hiện tại"))
         self.show_value_contrast_cam1.setPlaceholderText(_translate("MainWindow", "độ tương phản 0.0-3.0"))
@@ -1864,12 +1887,12 @@ class Ui_MainWindow(object):
         self.textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600; color:#ff0000;\">Thông tin phiên bản</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#ff0000;\">Version: 1.0<br />Ngày tạo: 3/2025</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#ff0000;\">Đơn vị phát hành: Pronics Precision <br />Người phát triển: Hoàng Việt Hưng - (+84) 83 4729 608</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#ff0000;\">Email: viethung18102000@gmail.com</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:7.8pt; color:#ff0000;\"><br /></p></body></html>"))
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ff0000;\"><br /></p></body></html>"))
         self.label.setText(_translate("MainWindow", "PRONICS PRECISION AUTOMATION"))
         self.show_disk_header.setText(_translate("MainWindow", "Disk"))
         self.show_ram_header.setText(_translate("MainWindow", "Ram:                "))

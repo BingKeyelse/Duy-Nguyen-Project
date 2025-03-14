@@ -1,8 +1,6 @@
 # from import_all import*
 import subprocess
 
-
-
 # Định nghĩa file giao diện và file output
 file_ui = "main_gui.ui"
 file_ui_to_py = "main_gui.py"

@@ -571,7 +571,7 @@ QSlider::sub-page:horizontal {
 }</string>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="window_1">
          <layout class="QGridLayout" name="gridLayout_10">
@@ -864,7 +864,7 @@ border: 2px solid black;</string>
                   <item row="0" column="0">
                    <widget class="QStackedWidget" name="stackedWidget_2">
                     <property name="currentIndex">
-                     <number>1</number>
+                     <number>2</number>
                     </property>
                     <widget class="QWidget" name="real">
                      <layout class="QGridLayout" name="gridLayout_5">
@@ -924,6 +924,36 @@ border: 2px solid black;</string>
                         </property>
                         <property name="scaledContents">
                          <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="vitual">
+                     <layout class="QGridLayout" name="gridLayout_20">
+                      <property name="leftMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="spacing">
+                       <number>0</number>
+                      </property>
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="show_pic_virtual_cam1">
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(255, 255, 255);
+border: 2px solid black;</string>
+                        </property>
+                        <property name="text">
+                         <string/>
                         </property>
                        </widget>
                       </item>
@@ -1321,6 +1351,13 @@ border: 2px solid black;</string>
                    </widget>
                   </item>
                   <item>
+                   <widget class="QLabel" name="show_r_circle_cam1">
+                    <property name="text">
+                     <string>R tròn tâm</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <widget class="QLabel" name="show_contrast_cam1">
                     <property name="text">
                      <string>Độ thương phản:             </string>
@@ -1384,6 +1421,19 @@ border: 2px solid black;</string>
                    </widget>
                   </item>
                   <item>
+                   <widget class="QSlider" name="slider_r_circle_cam1">
+                    <property name="maximum">
+                     <number>2000</number>
+                    </property>
+                    <property name="pageStep">
+                     <number>1</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <widget class="QLineEdit" name="show_value_contrast_cam1">
                     <property name="placeholderText">
                      <string>độ tương phản 0.0-3.0</string>
@@ -1391,17 +1441,17 @@ border: 2px solid black;</string>
                    </widget>
                   </item>
                   <item>
-                   <spacer name="horizontalSpacer_7">
+                   <spacer name="verticalSpacer_15">
                     <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                     <enum>Qt::Vertical</enum>
                     </property>
                     <property name="sizeType">
-                     <enum>QSizePolicy::Expanding</enum>
+                     <enum>QSizePolicy::Fixed</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>40</width>
-                      <height>10</height>
+                      <width>20</width>
+                      <height>15</height>
                      </size>
                     </property>
                    </spacer>
@@ -4015,12 +4065,12 @@ border: 2px solid black;</string>
              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ff0000;&quot;&gt;Thông tin phiên bản&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ff0000;&quot;&gt;Version: 1.0&lt;br /&gt;Ngày tạo: 3/2025&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ff0000;&quot;&gt;Đơn vị phát hành: Pronics Precision &lt;br /&gt;Người phát triển: Hoàng Việt Hưng - (+84) 83 4729 608&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ff0000;&quot;&gt;Email: viethung18102000@gmail.com&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:7.8pt; color:#ff0000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ff0000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
           </item>

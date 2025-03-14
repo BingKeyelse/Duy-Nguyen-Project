@@ -32,6 +32,8 @@ class UI_of_main_gui(MainWindow):
             self.ui.but_output_icon: self.ui.window_7,
             self.ui.but_information_expand: self.ui.window_8,
             self.ui.but_information_icon: self.ui.window_8,
+            self.ui.but_back_home_calib: self.ui.window_1,
+            self.ui.but_back_home_sample: self.ui.window_1
             }
 
          for button, widget in mapping.items():
@@ -52,9 +54,9 @@ class UI_of_main_gui(MainWindow):
         self.timer0.start(1000)  # Update after 30s
 
         # cập nhập time và date sau 1s
-        self.timer0 = QTimer(self)
-        self.timer0.timeout.connect(lambda: UI_of_main_gui.update_info_disk_ram(self))
-        self.timer0.start(30000)  # Update after 30s
+        self.timer1 = QTimer(self)
+        self.timer1.timeout.connect(lambda: UI_of_main_gui.update_info_disk_ram(self))
+        self.timer1.start(30000)  # Update after 30s
 
     
     def update_info_time_date(self):
@@ -78,14 +80,22 @@ class UI_of_main_gui(MainWindow):
         self.ui.show_disk_header.setText(f'{disk_text}')
     
     def show_image_3chanel(self,image,label):
-        """Hiển thị ảnh OpenCV trên QLabel."""
-        initial_size = label.size()  # Kích thước QLabel
-        # label.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Ignored)
-        resized_img = cv2.resize(image, (initial_size.width(), initial_size.height()), interpolation=cv2.INTER_CUBIC )
+        # """Hiển thị ảnh OpenCV trên QLabel."""
+        # initial_size = label.size()  # Kích thước QLabel
+        # # label.setSizePolicy(QSizePolicy.Ignored, QSizePolicy.Ignored)
+        # resized_img = cv2.resize(image, (initial_size.width(), initial_size.height()), interpolation=cv2.INTER_CUBIC )
 
-        img_height, img_width, img_channel = resized_img.shape
-        q_image = QImage(resized_img.data, img_width, img_height, img_width * img_channel, QImage.Format.Format_RGB888)
-        label.setPixmap(QPixmap.fromImage(q_image))
+        # img_height, img_width, img_channel = resized_img.shape
+        # q_image = QImage(resized_img.data, img_width, img_height, img_width * img_channel, QImage.Format.Format_RGB888)
+        # label.setPixmap(QPixmap.fromImage(q_image))
+
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Chuyển BGR -> RGB
+        h, w, ch = image.shape
+        bytes_per_line = ch * w
+        q_image = QImage(image.data, w, h, bytes_per_line, QImage.Format_RGB888)
+
+        label.setPixmap(QPixmap.fromImage(q_image))  # Gán ảnh vào QLabel
+        label.setScaledContents(True)  # Ảnh tự co giãn theo QLabel
         
     def show_image_1chanel(self,image,label):
         """Hiển thị ảnh OpenCV trên QLabel."""
@@ -97,6 +107,9 @@ class UI_of_main_gui(MainWindow):
         q_image = QImage(resized_img.data, img_width, img_height, img_width , QImage.Format.Format_Grayscale8)
         label.setPixmap(QPixmap.fromImage(q_image))
 
+    def give_name_file(self,path_link):
+        name=str(datetime.now())[0:19].replace(":", "-").replace(" ", "_") + ".png"
+        return name, os.path.join(path_link, name)
     
 
 

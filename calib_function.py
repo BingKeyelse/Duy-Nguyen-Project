@@ -2,8 +2,6 @@
 from import_all import*
 
 class Calib(MainWindow):
-    def __init__(self):
-        super().__init__()
 
     def start(self):
         image_extensions = {".jpg", ".png", ".jpeg", ".bmp", ".tiff"}
@@ -21,12 +19,9 @@ class Calib(MainWindow):
         self.current_label.setText(f"Hiện có: {self.file_count_calib}")
         self.current_label.setStyleSheet(f"background-color: white;")
 
-
-    
-
     def check_file_in_folder(self):
-        # Định nghĩa các định dạng file ảnh hợp lệ
         image_extensions = {".jpg", ".png", ".jpeg", ".bmp", ".tiff"}
+        
 
         path_folder=os.path.join(self.current_file_path,'data_calib')
 
@@ -62,6 +57,7 @@ class Calib(MainWindow):
     def clear_file_image(self):
         # Định dạng file ảnh cần xóa
         image_extensions = {".jpg", ".png", ".jpeg", ".bmp", ".tiff"}
+        
 
         # Đường dẫn thư mục
         path_folder = os.path.join(self.current_file_path, 'data_calib')

@@ -1,6 +1,8 @@
 # ===== Thư viện chuẩn của Python =====
 import os
 import sys
+import sys
+# sys.exit()
 import time
 import threading
 import queue
@@ -12,6 +14,11 @@ import codecs, json
 import numpy as np
 import matplotlib.image as mpimg
 import glob
+import math
+from datetime import datetime
+import shutil
+import sqlite3
+
 
 
 # ===== Thiết lập môi trường cho Qt trước khi import PyQt5 =====
@@ -33,3 +40,4 @@ from ui_effect_gui import UI_of_main_gui
 from main_gui import Ui_MainWindow
 from calib_function import Calib
 from cam1_function import Cam_1
+from sample_function import Sample

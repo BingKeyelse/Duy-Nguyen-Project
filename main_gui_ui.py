@@ -525,6 +525,20 @@ class Ui_MainWindow(object):
         self.gridLayout_6.addWidget(self.show_pic_thread_cam1, 0, 0, 1, 1)
 
         self.stackedWidget_2.addWidget(self.thread)
+        self.vitual = QWidget()
+        self.vitual.setObjectName(u"vitual")
+        self.gridLayout_20 = QGridLayout(self.vitual)
+        self.gridLayout_20.setSpacing(0)
+        self.gridLayout_20.setObjectName(u"gridLayout_20")
+        self.gridLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.show_pic_virtual_cam1 = QLabel(self.vitual)
+        self.show_pic_virtual_cam1.setObjectName(u"show_pic_virtual_cam1")
+        self.show_pic_virtual_cam1.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border: 2px solid black;")
+
+        self.gridLayout_20.addWidget(self.show_pic_virtual_cam1, 0, 0, 1, 1)
+
+        self.stackedWidget_2.addWidget(self.vitual)
 
         self.gridLayout_4.addWidget(self.stackedWidget_2, 0, 0, 1, 1)
 
@@ -736,6 +750,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_9.addWidget(self.show_v_low_cam1)
 
+        self.show_r_circle_cam1 = QLabel(self.widget_5)
+        self.show_r_circle_cam1.setObjectName(u"show_r_circle_cam1")
+
+        self.verticalLayout_9.addWidget(self.show_r_circle_cam1)
+
         self.show_contrast_cam1 = QLabel(self.widget_5)
         self.show_contrast_cam1.setObjectName(u"show_contrast_cam1")
 
@@ -777,14 +796,22 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addWidget(self.slider_v_low_cam1)
 
+        self.slider_r_circle_cam1 = QSlider(self.widget_5)
+        self.slider_r_circle_cam1.setObjectName(u"slider_r_circle_cam1")
+        self.slider_r_circle_cam1.setMaximum(2000)
+        self.slider_r_circle_cam1.setPageStep(1)
+        self.slider_r_circle_cam1.setOrientation(Qt.Horizontal)
+
+        self.verticalLayout_10.addWidget(self.slider_r_circle_cam1)
+
         self.show_value_contrast_cam1 = QLineEdit(self.widget_5)
         self.show_value_contrast_cam1.setObjectName(u"show_value_contrast_cam1")
 
         self.verticalLayout_10.addWidget(self.show_value_contrast_cam1)
 
-        self.horizontalSpacer_7 = QSpacerItem(40, 10, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.verticalSpacer_15 = QSpacerItem(20, 15, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
-        self.verticalLayout_10.addItem(self.horizontalSpacer_7)
+        self.verticalLayout_10.addItem(self.verticalSpacer_15)
 
 
         self.gridLayout_11.addLayout(self.verticalLayout_10, 0, 1, 1, 1)
@@ -2056,8 +2083,8 @@ class Ui_MainWindow(object):
         self.but_information_icon.toggled.connect(self.but_information_expand.setChecked)
         self.but_information_expand.toggled.connect(self.but_information_icon.setChecked)
 
-        self.stackedWidget.setCurrentIndex(1)
-        self.stackedWidget_2.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget_2.setCurrentIndex(2)
         self.space_screen2_4cam.setCurrentIndex(1)
         self.space_screen4_4cam.setCurrentIndex(1)
         self.space_screen1_4cam.setCurrentIndex(1)
@@ -2099,6 +2126,7 @@ class Ui_MainWindow(object):
         self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"K\u1ebft qu\u1ea3 tr\u1ea3 v\u1ec1", None))
         self.show_pic_real_cam1.setText("")
         self.show_pic_thread_cam1.setText("")
+        self.show_pic_virtual_cam1.setText("")
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"N\u00fat nh\u1ea5n", None))
         self.but_take_picture_cam1.setText(QCoreApplication.translate("MainWindow", u"Ch\u1ee5p", None))
         self.but_saving_cam1.setText(QCoreApplication.translate("MainWindow", u"L\u01b0u gi\u00e1 tr\u1ecb", None))
@@ -2115,6 +2143,7 @@ class Ui_MainWindow(object):
         self.show_h_low_cam1.setText(QCoreApplication.translate("MainWindow", u"H th\u1ea5p", None))
         self.show_s_low_cam1.setText(QCoreApplication.translate("MainWindow", u"S th\u1ea5p", None))
         self.show_v_low_cam1.setText(QCoreApplication.translate("MainWindow", u"V th\u1ea5p", None))
+        self.show_r_circle_cam1.setText(QCoreApplication.translate("MainWindow", u"R tr\u00f2n t\u00e2m", None))
         self.show_contrast_cam1.setText(QCoreApplication.translate("MainWindow", u"\u0110\u1ed9 th\u01b0\u01a1ng ph\u1ea3n:             ", None))
         self.show_value_now_cam1.setText(QCoreApplication.translate("MainWindow", u"Gi\u00e1 tr\u1ecb hi\u1ec7n t\u1ea1i", None))
         self.show_value_contrast_cam1.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0111\u1ed9 t\u01b0\u01a1ng ph\u1ea3n 0.0-3.0", None))
@@ -2197,13 +2226,13 @@ class Ui_MainWindow(object):
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600; color:#ff0000;\">Th\u00f4ng tin phi\u00ean b\u1ea3n</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#ff0000;\">Version: 1.0<br />Ng\u00e0y t\u1ea1o: 3/2025</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#ff0000;\">\u0110\u01a1n v\u1ecb ph\u00e1t"
                         " h\u00e0nh: Pronics Precision <br />Ng\u01b0\u1eddi ph\u00e1t tri\u1ec3n: Ho\u00e0ng Vi\u1ec7t H\u01b0ng - (+84) 83 4729 608</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#ff0000;\">Email: viethung18102000@gmail.com</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:7.8pt; color:#ff0000;\"><br /></p></body></html>", None))
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ff0000;\"><br /></p></body></html>", None))
         self.label_2.setText("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"PRONICS PRECISION AUTOMATION", None))
         self.label_3.setText("")
