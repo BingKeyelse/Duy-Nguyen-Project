@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1053, 764)
+        MainWindow.resize(1071, 730)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
@@ -2084,7 +2084,7 @@ class Ui_MainWindow(object):
         self.but_information_expand.toggled.connect(self.but_information_icon.setChecked)
 
         self.stackedWidget.setCurrentIndex(0)
-        self.stackedWidget_2.setCurrentIndex(2)
+        self.stackedWidget_2.setCurrentIndex(0)
         self.space_screen2_4cam.setCurrentIndex(1)
         self.space_screen4_4cam.setCurrentIndex(1)
         self.space_screen1_4cam.setCurrentIndex(1)

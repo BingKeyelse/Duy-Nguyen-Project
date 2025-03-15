@@ -41,3 +41,4 @@ from main_gui import Ui_MainWindow
 from calib_function import Calib
 from cam1_function import Cam_1
 from sample_function import Sample
+from listWidget_function import ListWidget

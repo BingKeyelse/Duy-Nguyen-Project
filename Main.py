@@ -16,7 +16,8 @@ class MainWindow(QMainWindow):
         self.auto_check_and_create_folder_and_file_NG()
         
         # Tạo data SQLite
-        self.creat_or_check_database()
+        self.database=['data_cam1.db','data_4cam.db']
+        self.create_or_check_database()
 
         # cập nhập time và date sau 1s
         self.timer_date = QTimer(self)
@@ -83,6 +84,9 @@ class MainWindow(QMainWindow):
         ### Sample
         self.sample=Sample(self)
         self.ui.but_take_sample.clicked.connect(self.trigger_cam_sample)
+
+        # Listwidget
+        self.widget=ListWidget(self)
 
 
         #### Hàm setup chức năng cho UI như nút nhấn, chuyển giao diện
@@ -203,8 +207,6 @@ class MainWindow(QMainWindow):
 
                     # Temp-matching hình ảnh nguyên bản được vẽ lên và hình ảnh nhỏ của vùng được scale
                     self.image_process, self.image_matching_process=self.template_matching(self.image_cam1.copy(),self.image_sample_cam1.copy())
-                    if self.image_matching_process is not None:
-                        cv2.imwrite(r'picture\real_circle_canny.png', self.image_matching_process)
                     if self.image_process is not None and self.image_matching_process is not None:
 
                         UI_of_main_gui.show_image_3chanel(self,self.image_process,self.ui.show_pic_cam_cam1)
@@ -356,7 +358,7 @@ class MainWindow(QMainWindow):
 
         # **Vẽ các đường tia**
         count_red = 0
-        for angle in range(0, 360, 2):  # Giảm mật độ tia (mỗi 5 độ)
+        for angle in range(0, 360, 2):  # Giảm mật độ tia (mỗi 2 độ)
             theta = np.deg2rad(angle)
             r = r_list[angle]
 
@@ -377,18 +379,39 @@ class MainWindow(QMainWindow):
 
         self.ui.show_value_now_cam1.setText(f'Điểm NG phát hiện: {count_red}')
 
-        if count_red > value[8]:
-            self.ui.label_ok_cam1.setStyleSheet(f"background: #47ff4d;")
-            self.ui.label_ng_cam1.setStyleSheet(f"background: #c6c6c6;")
-        else:
+        if count_red > value[8]: #NG
+            
             self.ui.label_ok_cam1.setStyleSheet(f"background: #c6c6c6;")
             self.ui.label_ng_cam1.setStyleSheet(f"background: #ff0772;")
-
-        
+            self.save_data_into_database_cam1(image.copy(), output_virtual.copy())
+        else: # OK
+            self.ui.label_ok_cam1.setStyleSheet(f"background: #47ff4d;")
+            self.ui.label_ng_cam1.setStyleSheet(f"background: #c6c6c6;")
         UI_of_main_gui.show_image_3chanel(self,output_virtual,self.ui.show_pic_virtual_cam1)
 
 
         return image
+
+    def save_data_into_database_cam1(self,image_real, image_thread):
+        print(' Đưa lưu lại NG và đưa vào database')
+
+        self.real_path_ng_cam1 = os.path.join(self.path_folder_today_ng_now_cam1, "real")
+        self.virtual_path_ng_cam1 = os.path.join(self.path_folder_today_ng_now_cam1, "virtual")
+
+        if not os.path.exists(self.real_path_ng_cam1):
+            os.makedirs(self.real_path_ng_cam1)
+
+        if not os.path.exists(self.virtual_path_ng_cam1):
+            os.makedirs(self.virtual_path_ng_cam1)
+
+        # Lấy tên cho ảnh nào
+        name_real   , link_real     = UI_of_main_gui.give_name_file(self,self.real_path_ng_cam1 )
+        name_virtual, link_vitrual  = UI_of_main_gui.give_name_file(self,self.virtual_path_ng_cam1)
+
+        cv2.imwrite(link_real, image_real)
+        cv2.imwrite(link_vitrual, image_thread)
+        
+        self.save_to_database(self.database[0], name_real)
 
 
     def template_matching(self, image, sample):
@@ -426,12 +449,6 @@ class MainWindow(QMainWindow):
 
         return image_draw, matched_region
 
-            
-
-
-
-                    
-
     def auto_calib(self):
         if self.file_count_calib>=5:
             json_path = os.path.join(self.current_file_path, "data_calib", "calib_camera.json")
@@ -453,40 +470,72 @@ class MainWindow(QMainWindow):
                 self.current_label.setText(f"Không calib được")
                 self.current_label.setStyleSheet(f"background-color: red;")
 
-    def save_change_into_database(self,link_database , file_path, name):
-        """Lưu ảnh vào database nếu chưa tồn tại."""
-        saved_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    def save_to_database(self, db_name, filename):
+        print('Chuyển đường dẫn vào database')
+        db_path = os.path.join(self.current_file_path, "data_txt", db_name)
 
-        # Mở kết nối mới
-        conn = sqlite3.connect(link_database)
+        conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
 
+        try:
+            cursor.execute("INSERT INTO images (filename) VALUES (?)", (filename,))
+            conn.commit()
+            # print(f"✅ Đã lưu {filename} vào {db_name}")
+        except sqlite3.IntegrityError:
+            print(f"⚠️ File {filename} đã tồn tại trong {db_name}")
+        finally:
+            conn.close()  # Đóng kết nối sau khi hoàn thành
+
+    def get_recent_filenames(self, db_name, limit=100):
+        """Lấy 100 file mới nhất từ database cụ thể, mở kết nối mới để tránh lỗi thread"""
+        db_path = os.path.join(self.current_file_path, "data_txt", db_name)
 
         try:
-            cursor.execute("INSERT INTO images (filename, filepath, saved_at) VALUES (?, ?, ?)", 
-                        (name, file_path, saved_at))
-            conn.commit()
-            print(f"✅ Đã lưu: {name}")
-        except sqlite3.IntegrityError:
-            print(f"⚠️ Đã tồn tại: {name}")
-    
-    def creat_or_check_database(self):
-        self.database_cam1= os.path.join(self.current_file_path,'data_txt', 'database_cam1')
+            # Mở kết nối mới trong từng thread
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
 
-        # Kiểm tra và kết nối tồn tại hoặc tạo mới
-        self.conn_cam1 = sqlite3.connect(self.database_cam1)
-        self.cursor_cam1 = self.conn_cam1.cursor()
+            # Truy vấn 100 file gần nhất
+            cursor.execute("SELECT filename FROM images ORDER BY id DESC LIMIT ?", (limit,))
+            filenames = [row[0] for row in cursor.fetchall()]
+
+        except sqlite3.Error as e:
+            print(f"❌ Lỗi SQLite ({db_name}): {e}")
+            filenames = []
+
+        finally:
+            conn.close()  # Đóng kết nối sau khi hoàn thành
+
+        return filenames
     
-            # Tạo bảng lưu ảnh nếu chưa tồn tại
-        self.cursor_cam1.execute('''
-            CREATE TABLE IF NOT EXISTS images (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                filename TEXT UNIQUE,
-                filepath TEXT,
-                saved_at TEXT
-            )
-        ''')
-        self.conn_cam1.commit()
+    def create_or_check_database(self):
+        self.db_connections = {}  # Lưu kết nối để dễ dùng sau này
+        for db_name in self.database:
+
+            db_path = os.path.join(self.current_file_path, "data_txt", db_name)
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+            
+            # Tạo bảng nếu chưa tồn tại
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS images (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    filename TEXT UNIQUE
+                )
+            ''')
+            conn.commit()
+        
+            # Lưu kết nối
+            self.db_connections[db_name] = conn
+        # nếu có rồi thì nó sẽ không xóa dữ liệu còn tồn tại
+    
+    def close_all_databases(self):
+        """Đóng tất cả kết nối database khi thoát chương trình"""
+        for db_name, conn in self.db_connections.items():
+            conn.close()
+            print(f"🔌 Đã đóng {db_name}")
+
+        self.db_connections.clear()  # Xóa danh sách kết nối
 
     def auto_check_and_create_folder_and_file_NG(self):
         link=os.path.join(self.current_file_path, "data_NG")
@@ -503,9 +552,13 @@ class MainWindow(QMainWindow):
         # Tao folder hien tai de su dung cho muc dich luu tru
         self.path_folder_year_now   = os.path.join(link,str(self.year_now))
         self.path_folder_today_ng_now_cam1   = os.path.join(self.path_folder_year_now ,str(self.month_now),'cam1')
+        self.path_folder_today_ng_now_4cam   = os.path.join(self.path_folder_year_now ,str(self.month_now),'4cam')
         ## Nếu không có thì phải tạo
         if not os.path.exists(self.path_folder_today_ng_now_cam1):
             os.makedirs(self.path_folder_today_ng_now_cam1)
+
+        if not os.path.exists(self.path_folder_today_ng_now_4cam):
+            os.makedirs(self.path_folder_today_ng_now_4cam)
 
         # check lai folder voi muc dich chi co the chua duoc nhieu nhat 6 thang
 
@@ -553,6 +606,8 @@ class MainWindow(QMainWindow):
             self.auto_check_and_create_folder_and_file_NG()
 
     def closeEvent(self, event):
+        # Đóng các database
+        self.close_all_databases()
         print("Ngắt kết nối camera thoát chương trình")
         self.camera.close()
         event.accept()
