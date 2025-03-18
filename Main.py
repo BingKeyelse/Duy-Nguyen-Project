@@ -65,11 +65,24 @@ class MainWindow(QMainWindow):
         self.ui.but_result_cam1.clicked.connect(lambda: Cam_1.switch_page(self))
         self.center_cam1=0
 
+        # Khởi tạo queue cho cam 2 3 4
+        # AI
+        self.queue_AI_cam2= Queue()
+        self.queue_AI_cam3= Queue()
+        self.queue_AI_cam4= Queue()
+        # GUI
+        self.queue_GUI_cam2= Queue()
+        self.queue_GUI_cam3= Queue()
+        self.queue_GUI_cam4= Queue()
+
 
 
         # ✅ Khởi tạo camera Basler
-        self.camera = camera_Basler_multi(self.current_queue_cam1,self.mode_pic_cam1) # Chỉ có calib là gửi số 0 đi
+        self.camera = camera_Basler_multi(self.current_queue_cam1, self.queue_GUI_cam2, self.queue_GUI_cam3, self.queue_GUI_cam4) # Chỉ có calib là gửi số 0 đi
         self.camera.begin()
+
+        process_AI = Process(target = run_AI, args=(self.queue_AI_cam2, self.queue_AI_cam3, self.queue_AI_cam4,))
+        process_AI.start()
 
 
 
@@ -103,6 +116,8 @@ class MainWindow(QMainWindow):
         # Các hàm threading
         thread1= threading.Thread(target=self.process_queue_cam1, daemon=True)
         thread1.start()
+
+        #
 
     def check(self):
         print(f'OKOKOKOKOK: {self.value_now_cam1}')
@@ -625,10 +640,13 @@ class MainWindow(QMainWindow):
         event.accept()
 
 class camera_Basler_multi:
-    def __init__(self, pic_queue, mode):
+    def __init__(self, pic_queue, pic_queue2, pic_queue3, pic_queue4):
         """Khởi tạo class camera"""
         self.pic_queue = pic_queue
-        self.mode=mode
+
+        self.pic_queue2 = pic_queue2
+        self.pic_queue3 = pic_queue3
+        self.pic_queue4 = pic_queue4
 
         self.cam = None
         self.converter = None
@@ -869,9 +887,15 @@ class FrameCalibrate:
         image_undistort = image_undistort[y:y+h, x:x+w]
         return image_undistort
 
+def run_AI(cam2, cam3, cam4):
+    while True:
+        return 0
+
     
 
 if __name__ == "__main__":
+    multiprocessing.freeze_support()
+
     ### Convert 
     # auto_tranfer_file.convert_ui_qrc_to_py()
     app = QApplication(sys.argv)
