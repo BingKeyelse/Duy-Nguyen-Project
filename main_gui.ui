@@ -568,10 +568,32 @@ QSlider::sub-page:horizontal {
     background: #F5F5F5  ;
     border-radius: 2px;
 	border: 1px solid #4b4b4b;
+}
+
+QScrollBar:vertical {
+    border: 1px solid #5c5c5c;
+    background: #2e2e2e;
+    width: 25px;
+    margin: 0px 0px 0px 0px;
+}
+
+QScrollBar::handle:vertical {
+    background: #59e5e5; /* Màu của thanh kéo */
+    min-height: 50px;
+    border-radius: 6px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #0099cc; /* Màu khi hover vào */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background: none;
+    border: none;
 }</string>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>3</number>
         </property>
         <widget class="QWidget" name="window_1">
          <layout class="QGridLayout" name="gridLayout_10">
@@ -2621,6 +2643,12 @@ border: 2px solid black;</string>
           </item>
           <item row="2" column="0">
            <widget class="QGroupBox" name="groupBox_13">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="font">
              <font>
               <pointsize>8</pointsize>
@@ -2629,22 +2657,7 @@ border: 2px solid black;</string>
             <property name="title">
              <string>Bảng điều khiển</string>
             </property>
-            <layout class="QGridLayout" name="gridLayout_27">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <property name="spacing">
-              <number>0</number>
-             </property>
+            <layout class="QGridLayout" name="gridLayout_21">
              <item row="0" column="0">
               <layout class="QFormLayout" name="formLayout_8">
                <property name="horizontalSpacing">
@@ -2690,6 +2703,39 @@ border: 2px solid black;</string>
               </layout>
              </item>
              <item row="0" column="1">
+              <spacer name="horizontalSpacer_18">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Minimum</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>50</width>
+                 <height>17</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="but_real_4cam_2">
+               <property name="minimumSize">
+                <size>
+                 <width>120</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Chụp ảnh</string>
+               </property>
+               <property name="icon">
+                <iconset resource="icons.qrc">
+                 <normaloff>:/icon/icons/Cursor-Select-Frame--Streamline-Ultimate.png</normaloff>:/icon/icons/Cursor-Select-Frame--Streamline-Ultimate.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
               <spacer name="horizontalSpacer_14">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -2699,13 +2745,13 @@ border: 2px solid black;</string>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>150</width>
+                 <width>50</width>
                  <height>20</height>
                 </size>
                </property>
               </spacer>
              </item>
-             <item row="0" column="2">
+             <item row="0" column="4">
               <layout class="QVBoxLayout" name="verticalLayout_11">
                <property name="spacing">
                 <number>10</number>
@@ -2746,7 +2792,7 @@ border: 2px solid black;</string>
                </item>
               </layout>
              </item>
-             <item row="0" column="3">
+             <item row="0" column="5">
               <spacer name="horizontalSpacer_15">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -2756,7 +2802,7 @@ border: 2px solid black;</string>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>150</width>
+                 <width>50</width>
                  <height>20</height>
                 </size>
                </property>
@@ -2891,6 +2937,9 @@ border: 2px solid black;</string>
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
                   </property>
                  </widget>
                 </item>

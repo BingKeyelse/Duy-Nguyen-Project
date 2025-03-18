@@ -48,6 +48,7 @@ class MainWindow(QMainWindow):
         self.value_saved_cam1=[None, None, None, None, None, None, None, None, None, None] 
         self.value_now_cam1=[None, None, None, None, None, None, None, None, None, None] 
         self.image_cam1=None
+        self.image_process=None
 
         
 
@@ -86,7 +87,11 @@ class MainWindow(QMainWindow):
         self.ui.but_take_sample.clicked.connect(self.trigger_cam_sample)
 
         # Listwidget
-        self.widget=ListWidget(self)
+        self.real_path_ng_cam1 = os.path.join(self.path_folder_today_ng_now_cam1, "real")
+        self.virtual_path_ng_cam1 = os.path.join(self.path_folder_today_ng_now_cam1, "virtual")
+        self.list_widget_ng=ListWidget(self)
+        self.ui.but_NG_1_expand.clicked.connect(self.list_widget_ng.list_NG_cam1)
+        self.ui.but_NG_1_icon.clicked.connect(self.list_widget_ng.list_NG_cam1)
 
 
         #### Hàm setup chức năng cho UI như nút nhấn, chuyển giao diện
@@ -141,6 +146,11 @@ class MainWindow(QMainWindow):
         self.ui.show_pic_real_cam1.setFixedSize(419, 428)
         self.ui.show_pic_virtual_cam1.setFixedSize(419, 428)
 
+        # Setup màn hinh listwidget cam 1 ng
+        self.ui.show_pic_real_ng1cam.setFixedSize(300, 300)
+        self.ui.show_pic_result_ng1cam.setFixedSize(300, 300)
+
+
 
         # Tạo QLabel mới trên nền của màn hình hiện ảnh của calib
         self.current_label = QLabel("          ", self.ui.show_pic_calib_calib)
@@ -155,6 +165,7 @@ class MainWindow(QMainWindow):
     def trigger_cam_1(self):
         self.mode_pic_cam1.value=0
         self.camera.trigger_cam()
+
      
 
     def trigger_cam_sample(self):
@@ -212,7 +223,7 @@ class MainWindow(QMainWindow):
                         UI_of_main_gui.show_image_3chanel(self,self.image_process,self.ui.show_pic_cam_cam1)
                     else: 
                         UI_of_main_gui.show_image_3chanel(self,self.image_cam1,self.ui.show_pic_cam_cam1)
-
+                    Cam_1.undo_data(self)
 
                     self.process_cam_1(self.value_saved_cam1)
                     
@@ -220,6 +231,7 @@ class MainWindow(QMainWindow):
     def process_cam_1(self, value):
 
         if self.image_process is not None and self.image_matching_process is not None:
+            self.time_start=time.time()
             # Hình ảnh cắt ra của hình chữ nhật đó
             image_matching_process_drawed=self.image_matching_process.copy()
             picture_drawed=0
@@ -267,7 +279,7 @@ class MainWindow(QMainWindow):
             UI_of_main_gui.show_image_3chanel(self,image_matching_process_drawed,self.ui.show_pic_real_cam1)
             UI_of_main_gui.show_image_3chanel(self,mask,self.ui.show_pic_thread_cam1)
 
-        else:
+        elif self.image_cam1 is not None:
             UI_of_main_gui.show_image_3chanel(self,self.image_cam1.copy(),self.ui.show_pic_cam_cam1)
             self.ui.show_pic_real_cam1.clear()
             self.ui.show_pic_thread_cam1.clear()
@@ -395,9 +407,6 @@ class MainWindow(QMainWindow):
     def save_data_into_database_cam1(self,image_real, image_thread):
         print(' Đưa lưu lại NG và đưa vào database')
 
-        self.real_path_ng_cam1 = os.path.join(self.path_folder_today_ng_now_cam1, "real")
-        self.virtual_path_ng_cam1 = os.path.join(self.path_folder_today_ng_now_cam1, "virtual")
-
         if not os.path.exists(self.real_path_ng_cam1):
             os.makedirs(self.real_path_ng_cam1)
 
@@ -412,6 +421,9 @@ class MainWindow(QMainWindow):
         cv2.imwrite(link_vitrual, image_thread)
         
         self.save_to_database(self.database[0], name_real)
+        self.time_end=time.time()
+
+        print(f'FPS: {((self.time_end-self.time_start)):.5f}')
 
 
     def template_matching(self, image, sample):
@@ -659,6 +671,19 @@ class camera_Basler_multi:
 
         except Exception as e:
             print(f"❌ Lỗi khởi tạo camera: {e}")
+
+    def reconnect_camera(self):
+        """Thử kết nối lại camera"""
+        try:
+            self.cam.Close()  # Đóng camera nếu nó vẫn mở
+            time.sleep(0.5)  # Đợi một chút trước khi mở lại
+
+            self.cam = pylon.InstantCamera(pylon.TlFactory.GetInstance().CreateFirstDevice())
+            self.cam.Open()
+            print("✅ Camera đã kết nối lại thành công!")
+        
+        except Exception as e:
+            print(f"⚠ Không thể kết nối lại camera: {e}")
     
     def monitor_trigger(self):
         def run():
@@ -672,9 +697,16 @@ class camera_Basler_multi:
                         self.trigger_cam()
 
                     previous_status = line_status  # Cập nhật trạng thái
-                    time.sleep(0.005)  # Tránh tiêu tốn CPU quá nhiều
-                except Exception as e:
+                    time.sleep(0.008)  # Tránh tiêu tốn CPU quá nhiều
+                except pylon.RuntimeException as e:
                     print(f"❌ Lỗi khi theo dõi trigger: {e}")
+                    print("🔄 Đang thử kết nối lại camera...")
+                    self.reconnect_camera()
+                    time.sleep(1)  # Đợi một chút rồi thử lại
+                    
+                except Exception as e:
+                    print(f"❌ Lỗi khác: {e}")
+                    time.sleep(1)  # Đợi 1 giây rồi thử lại
         return  threading.Thread(target=run, daemon=True)
 
     def trigger_cam(self):

@@ -368,6 +368,29 @@ class Ui_MainWindow(object):
 "    background: #F5F5F5  ;\n"
 "    border-radius: 2px;\n"
 "	border: 1px solid #4b4b4b;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: 1px solid #5c5c5c;\n"
+"    background: #2e2e2e;\n"
+"    width: 25px;\n"
+""
+                        "    margin: 0px 0px 0px 0px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #59e5e5; /* M\u00e0u c\u1ee7a thanh k\u00e9o */\n"
+"    min-height: 50px;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: #0099cc; /* M\u00e0u khi hover v\u00e0o */\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
+"    background: none;\n"
+"    border: none;\n"
 "}")
         self.window_1 = QWidget()
         self.window_1.setObjectName(u"window_1")
@@ -1316,11 +1339,10 @@ class Ui_MainWindow(object):
 
         self.groupBox_13 = QGroupBox(self.window_4)
         self.groupBox_13.setObjectName(u"groupBox_13")
+        self.groupBox_13.setMinimumSize(QSize(0, 0))
         self.groupBox_13.setFont(font2)
-        self.gridLayout_27 = QGridLayout(self.groupBox_13)
-        self.gridLayout_27.setSpacing(0)
-        self.gridLayout_27.setObjectName(u"gridLayout_27")
-        self.gridLayout_27.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_21 = QGridLayout(self.groupBox_13)
+        self.gridLayout_21.setObjectName(u"gridLayout_21")
         self.formLayout_8 = QFormLayout()
         self.formLayout_8.setObjectName(u"formLayout_8")
         self.formLayout_8.setHorizontalSpacing(0)
@@ -1349,11 +1371,22 @@ class Ui_MainWindow(object):
         self.formLayout_8.setWidget(1, QFormLayout.FieldRole, self.slider_limit_area_4cam)
 
 
-        self.gridLayout_27.addLayout(self.formLayout_8, 0, 0, 1, 1)
+        self.gridLayout_21.addLayout(self.formLayout_8, 0, 0, 1, 1)
 
-        self.horizontalSpacer_14 = QSpacerItem(150, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_18 = QSpacerItem(50, 17, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_27.addItem(self.horizontalSpacer_14, 0, 1, 1, 1)
+        self.gridLayout_21.addItem(self.horizontalSpacer_18, 0, 1, 1, 1)
+
+        self.but_real_4cam_2 = QPushButton(self.groupBox_13)
+        self.but_real_4cam_2.setObjectName(u"but_real_4cam_2")
+        self.but_real_4cam_2.setMinimumSize(QSize(120, 50))
+        self.but_real_4cam_2.setIcon(icon12)
+
+        self.gridLayout_21.addWidget(self.but_real_4cam_2, 0, 2, 1, 1)
+
+        self.horizontalSpacer_14 = QSpacerItem(50, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_21.addItem(self.horizontalSpacer_14, 0, 3, 1, 1)
 
         self.verticalLayout_11 = QVBoxLayout()
         self.verticalLayout_11.setSpacing(10)
@@ -1377,11 +1410,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_11.addWidget(self.but_result_4cam)
 
 
-        self.gridLayout_27.addLayout(self.verticalLayout_11, 0, 2, 1, 1)
+        self.gridLayout_21.addLayout(self.verticalLayout_11, 0, 4, 1, 1)
 
-        self.horizontalSpacer_15 = QSpacerItem(150, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_15 = QSpacerItem(50, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_27.addItem(self.horizontalSpacer_15, 0, 3, 1, 1)
+        self.gridLayout_21.addItem(self.horizontalSpacer_15, 0, 5, 1, 1)
 
 
         self.gridLayout_32.addWidget(self.groupBox_13, 2, 0, 1, 1)
@@ -1435,6 +1468,7 @@ class Ui_MainWindow(object):
         self.list_ng1cam.setObjectName(u"list_ng1cam")
         sizePolicy.setHeightForWidth(self.list_ng1cam.sizePolicy().hasHeightForWidth())
         self.list_ng1cam.setSizePolicy(sizePolicy)
+        self.list_ng1cam.setStyleSheet(u"")
 
         self.gridLayout_37.addWidget(self.list_ng1cam, 0, 0, 1, 1)
 
@@ -2083,7 +2117,7 @@ class Ui_MainWindow(object):
         self.but_information_icon.toggled.connect(self.but_information_expand.setChecked)
         self.but_information_expand.toggled.connect(self.but_information_icon.setChecked)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(3)
         self.stackedWidget_2.setCurrentIndex(0)
         self.space_screen2_4cam.setCurrentIndex(1)
         self.space_screen4_4cam.setCurrentIndex(1)
@@ -2183,6 +2217,7 @@ class Ui_MainWindow(object):
         self.groupBox_13.setTitle(QCoreApplication.translate("MainWindow", u"B\u1ea3ng \u0111i\u1ec1u khi\u1ec3n", None))
         self.show_limit_ai_4cam.setText(QCoreApplication.translate("MainWindow", u"Ng\u01b0\u1ee1ng AI:               ", None))
         self.show_limit_area_4cam.setText(QCoreApplication.translate("MainWindow", u"Ng\u01b0\u1ee1ng ph\u00e2n \u0111\u1ecbnh:                ", None))
+        self.but_real_4cam_2.setText(QCoreApplication.translate("MainWindow", u"Ch\u1ee5p \u1ea3nh", None))
         self.but_real_4cam.setText(QCoreApplication.translate("MainWindow", u"H\u00ecnh \u1ea3nh th\u1ef1c t\u1ebf", None))
         self.but_result_4cam.setText(QCoreApplication.translate("MainWindow", u"K\u1ebft qu\u1ea3 ", None))
         self.but_tool_ng1cam.setText(QCoreApplication.translate("MainWindow", u"Thanh c\u00f4ng c\u1ee5", None))
