@@ -1,5 +1,6 @@
 from import_all import*
 
+
 class Cam_1(MainWindow):
     def __init__(self):
         super().__init__()

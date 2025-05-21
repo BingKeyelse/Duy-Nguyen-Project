@@ -1,4 +1,13 @@
 from import_all import*
+# ===== Module nội bộ của dự án =====
+import  auto_tranfer_file 
+from Main import MainWindow
+# from ui_effect_gui import UI_of_main_gui
+from main_gui import Ui_MainWindow
+from calib_function import Calib
+from cam1_function import Cam_1
+from sample_function import Sample
+from listWidget_function import ListWidget
 
 class UI_of_main_gui(MainWindow):
     # Thay đôi các màn hình đi kèm với mỗi nút 

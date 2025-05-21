@@ -1,6 +1,24 @@
 #!/usr/bin/env python3
 from import_all import*
+from collections import deque
 
+
+class SubWindow(QDialog, Ui_Dialog):
+    def __init__(self, parent=None):
+        super().__init__()
+        self.parent = parent
+        self.ui = Ui_Dialog()
+        self.setupUi(self)  
+
+        # Hide layout
+        self.setWindowFlags(Qt.FramelessWindowHint)
+
+        # Unable some function of others 
+        self.setWindowModality(Qt.WindowModality.ApplicationModal)
+        self.ui.setupUi(self)
+        self.ui.but_no.clicked.connect(self.close)  # Gán sự kiện đóng cửa sổ
+        self.ui.but_yes.clicked.connect(self.close)  # Gán sự kiện đóng cửa sổ phụ
+        self.ui.but_yes.clicked.connect(self.parent.close)  # Gán sự kiện đóng cửa sổ phụ
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -62,8 +80,10 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.currentChanged.connect(self.on_page_changed)
 
         # Chương trình nút nhấn thoát hệ thống
-        self.ui.but_exit_expand.clicked.connect(lambda: self.close())
-        self.ui.but_exit_icon.clicked.connect(lambda: self.close())
+        # self.ui.but_exit_expand.clicked.connect(lambda: self.close())
+        # self.ui.but_exit_icon.clicked.connect(lambda: self.close())
+        self.ui.but_exit_expand.clicked.connect(self.popup_open)
+        self.ui.but_exit_icon.clicked.connect(self.popup_open)
 
         ##### Cam 1
         # Khởi tạo data lưu trữ: queue với camera 1
@@ -88,7 +108,6 @@ class MainWindow(QMainWindow):
         Cam_1.slider_change_value_cam1(self)
         # 4 Cam
         self.ui.slider_limit_area_4cam.valueChanged.connect(lambda: Cam_1.define_value_4cam(self))
-
 
         ## Tạo một Timer liên kết với việc xử lý chương trình của cam 1 mỗi khi có thay đổi các slider và label giá trị
         #  chúng xử lý sau một khoảng thời gian kích hoạt để không làm cho việc thay đổi giá trị slider ảnh hưởng đến hiện suất
@@ -145,7 +164,6 @@ class MainWindow(QMainWindow):
         self.queue_GUI_cam4= Queue(maxsize=1)
         self.queue_GUI_cam5= Queue(maxsize=1)
         
-
         # Khai báo bit cờ cho mục đích chạy AI, có thể thay bit này bằng Value trong mutilprocessing
         #   khi chương trình kết thúc thì ta đưa nó về False để không làm phá hủy chu trình đang chạy 
         #   của process đang chạy AI cho 4 cam
@@ -174,14 +192,12 @@ class MainWindow(QMainWindow):
         self.vitrual_image_4cam=[]
 
         # Mảng output tạo ra để lưu trữ kết quả từ cam 1 cho mục đích phù hợp với dịch bit bên PLC
-        self.result_output_cam1=[]
+        self.result_output_cam1=deque()
         self.result_output_4cam=0 # Tổng hợp kết quả của các giá trị 4 Cam sau khi nhận được toàn bộ
 
         # Giá trị để debug
         self.count_cam1=0
         self.count_4cam=0
-
-
 
         # ✅ Khởi tạo camera Basler
         self.camera = camera_Basler_multi(self.current_queue_cam1, self.queue_GUI_cam2, self.queue_GUI_cam3, self.queue_GUI_cam4, self.queue_GUI_cam5
@@ -276,11 +292,42 @@ class MainWindow(QMainWindow):
         self.thread5= threading.Thread(target=self.process_queue_4cam_cam5, daemon=True)
         self.thread5.start()
 
+        ## Nút nhấn Screenshot
+        self.ui.but_screenshot_expand.clicked.connect(self.screen_shot)
+        self.ui.but_screenshot_icon.clicked.connect(self.screen_shot)
+
     ##------------------------------------------------------------
     ##------------------------------------------------------------
 
     def check(self):
         print(f'OKOKOKOKOK: {self.value_now_cam1}')
+
+    def screen_shot(self):
+        """Chức năng chụp màn hình"""
+        # Lấy màn hình chính
+        screen = QApplication.primaryScreen()
+
+        # Chụp và lưu
+        screenshot = screen.grabWindow(0)  # 0 = toàn màn hình
+        # Chuyển từ QPixmap sang QImage
+        qimage = screenshot.toImage()
+        # Lấy thông tin ảnh
+        width = qimage.width()
+        height = qimage.height()
+        ptr = qimage.bits()
+        ptr.setsize(qimage.byteCount())
+        img = np.array(ptr).reshape(height, width, 4)  # RGBA
+
+        # Chuyển sang BGR để dùng với OpenCV
+        img_bgr = cv2.cvtColor(img, cv2.COLOR_RGBA2RGB)
+        # screenshot=cv2.cvtColor(screenshot,cv2.COLOR_BGR2RGB)
+        
+        #Lấy tên cho ảnh
+        source='/home/pronics/Desktop/Screenshot'
+        _, link_path= UI_of_main_gui.give_name_file(self,source)
+
+        # Lưu ảnh
+        cv2.imwrite(link_path, img_bgr)
 
     def clear_data_ng_restored(self):
         # Lấy thư mục hiện tại
@@ -313,10 +360,8 @@ class MainWindow(QMainWindow):
         # Tạo mới
         self.create_or_check_database()
 
-
-
     def clear_data_production_restored(self):
-        self.result_output_cam1=[]
+        self.result_output_cam1.clear()
 
     def read_file(self, link): # dùng để đọc file text riêng cho phần đọc tháng
         data_read= open(link,"r")
@@ -348,6 +393,8 @@ class MainWindow(QMainWindow):
             self.mode_pic_cam1.value=1
         elif self.ui.stackedWidget.currentWidget() == self.ui.window_3:
             self.mode_pic_cam1.value=2
+        else:
+            self.mode_pic_cam1.value=0
         
     def initial_UI_setup(self):
         # Luôn ở màn hình View
@@ -551,7 +598,7 @@ class MainWindow(QMainWindow):
 
                         # Tinh toan NG va OK
                         if len(self.result_output_cam1)>0:
-                            if self.result_output_cam1.pop()== True and self.result_output_4cam == True:
+                            if self.result_output_cam1.popleft()== True and self.result_output_4cam == True:
                                 self.value_ok_production= self.value_ok_production+ self.value_const_production
                                 
                                 # Xuất tín hiệu label OK sáng lên ở View
@@ -1490,6 +1537,29 @@ class MainWindow(QMainWindow):
             self.auto_check_and_create_folder_and_file_NG()
             self.check_month_forth()
             self.create_or_check_database()
+
+    def popup_open(self):
+        self.screen_2=SubWindow(self)
+        self.screen_2.adjustSize()
+
+        # Lấy tọa độ gốc (global) của stackedWidget
+        stacked_geo = self.ui.stackedWidget.geometry()
+        stacked_pos = self.ui.stackedWidget.mapToGlobal(stacked_geo.topLeft())
+
+        # Lấy kích thước của stackedWidget
+        stacked_width = self.ui.stackedWidget.width()
+        stacked_height = self.ui.stackedWidget.height()
+
+        # Lấy kích thước thực tế của screen_2
+        dialog_width = self.screen_2.width()
+        dialog_height = self.screen_2.height()
+
+        # Tính tọa độ để căn giữa screen_2 trong stackedWidget
+        center_x = stacked_pos.x() + (stacked_width - dialog_width) // 2
+        center_y = stacked_pos.y() + (stacked_height - dialog_height) // 2-100
+
+        self.screen_2.move(center_x, center_y)  # Di chuyển đến vị trí căn giữa
+        self.screen_2.show()
 
     def closeEvent(self, event):
         # Khi kết thúc chương trình thì phải lưu lại giá trị Sản lượng đang hiện có tất nhiên là mình cũng đã lưu liên tục

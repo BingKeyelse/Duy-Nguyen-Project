@@ -40,7 +40,7 @@ print("GENICAM_GENTL64_PATH =", os.environ.get("GENICAM_GENTL64_PATH"))
 # ===== Thư viện bên thứ ba =====
 import cv2
 from pypylon import pylon
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QSizePolicy, QLayout, QTableWidgetItem, QWidget, QHBoxLayout
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QSizePolicy, QLayout, QTableWidgetItem, QWidget, QHBoxLayout, QDialog
 from PyQt5.QtCore import QDateTime, QTimer, Qt
 from PyQt5.QtGui import QImage, QPixmap
 import icons_rc
@@ -52,14 +52,17 @@ try:
 except ModuleNotFoundError:
     raise ImportError("The 'onnxruntime' module is not installed. Please install it with 'pip install onnxruntime' before running this script.")
 
-
 # ===== Module nội bộ của dự án =====
 import  auto_tranfer_file 
+from main_gui import Ui_MainWindow
+from popup import Ui_Dialog
 from Main import MainWindow
 from ui_effect_gui import UI_of_main_gui
-from main_gui import Ui_MainWindow
 from calib_function import Calib
 from cam1_function import Cam_1
 from sample_function import Sample
 from listWidget_function import ListWidget
+
+# =================================
+
 

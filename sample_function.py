@@ -1,6 +1,7 @@
 from import_all import*
 
 
+
 class Sample():
     # Khởi chạy, đọc và gán giá trị lúc bạn đầu
     def __init__(self, parent: "MainWindow"):
